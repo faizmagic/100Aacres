@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EFB6A2A5-46A4-4EDC-AF6C-73F5CEE6B56E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_100Acres</RootNamespace>
+    <AssemblyName>100Acres</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\angular\angular-cookies.js" />
+    <Content Include="app\angular\angular-cookies.min.js" />
+    <Content Include="app\angular\angular-loader.js" />
+    <Content Include="app\angular\angular-loader.min.js" />
+    <Content Include="app\angular\angular-resource.js" />
+    <Content Include="app\angular\angular-resource.min.js" />
+    <Content Include="app\angular\angular-sanitize.js" />
+    <Content Include="app\angular\angular-sanitize.min.js" />
+    <Content Include="app\angular\angular.js" />
+    <Content Include="app\angular\angular.min.js" />
+    <Content Include="app\angular\version.txt" />
+    <Content Include="app\jplugins\jPages.js" />
+    <Content Include="app\jplugins\jquery-1.8.2.min.js" />
+    <Content Include="app\jplugins\pagination.js" />
+    <Content Include="app\jplugins\ui-bootstrap-0.6.0.js" />
+    <Content Include="app\js\app.js" />
+    <Content Include="app\js\PropertyListController.js" />
+    <Content Include="app\styles\animate.css" />
+    <Content Include="app\styles\bootstrap.css" />
+    <Content Include="app\styles\github.css" />
+    <Content Include="app\styles\jPages.css" />
+    <Content Include="app\styles\style.css" />
+    <Content Include="app\template\pagination\pager.html" />
+    <Content Include="app\template\pagination\pagination.html" />
+    <Content Include="img\back.gif" />
+    <Content Include="img\gallery\1.jpg" />
+    <Content Include="img\gallery\10.jpg" />
+    <Content Include="img\gallery\11.jpg" />
+    <Content Include="img\gallery\12.jpg" />
+    <Content Include="img\gallery\13.jpg" />
+    <Content Include="img\gallery\14.jpg" />
+    <Content Include="img\gallery\2.jpg" />
+    <Content Include="img\gallery\3.jpg" />
+    <Content Include="img\gallery\4.jpg" />
+    <Content Include="img\gallery\5.jpg" />
+    <Content Include="img\gallery\6.jpg" />
+    <Content Include="img\gallery\7.jpg" />
+    <Content Include="img\gallery\8.jpg" />
+    <Content Include="img\gallery\9.jpg" />
+    <Content Include="img\img %281%29.jpg" />
+    <Content Include="img\img %2810%29.jpg" />
+    <Content Include="img\img %28100%29.jpg" />
+    <Content Include="img\img %28101%29.jpg" />
+    <Content Include="img\img %28102%29.jpg" />
+    <Content Include="img\img %28103%29.jpg" />
+    <Content Include="img\img %28104%29.jpg" />
+    <Content Include="img\img %28105%29.jpg" />
+    <Content Include="img\img %28106%29.jpg" />
+    <Content Include="img\img %28107%29.jpg" />
+    <Content Include="img\img %28108%29.jpg" />
+    <Content Include="img\img %28109%29.jpg" />
+    <Content Include="img\img %2811%29.jpg" />
+    <Content Include="img\img %28110%29.jpg" />
+    <Content Include="img\img %28111%29.jpg" />
+    <Content Include="img\img %28112%29.jpg" />
+    <Content Include="img\img %28113%29.jpg" />
+    <Content Include="img\img %28114%29.jpg" />
+    <Content Include="img\img %28115%29.jpg" />
+    <Content Include="img\img %28116%29.jpg" />
+    <Content Include="img\img %28117%29.jpg" />
+    <Content Include="img\img %28118%29.jpg" />
+    <Content Include="img\img %28119%29.jpg" />
+    <Content Include="img\img %2812%29.jpg" />
+    <Content Include="img\img %28120%29.jpg" />
+    <Content Include="img\img %28121%29.jpg" />
+    <Content Include="img\img %28122%29.jpg" />
+    <Content Include="img\img %28123%29.jpg" />
+    <Content Include="img\img %28124%29.jpg" />
+    <Content Include="img\img %28125%29.jpg" />
+    <Content Include="img\img %28126%29.jpg" />
+    <Content Include="img\img %28127%29.jpg" />
+    <Content Include="img\img %28128%29.jpg" />
+    <Content Include="img\img %28129%29.jpg" />
+    <Content Include="img\img %2813%29.jpg" />
+    <Content Include="img\img %28130%29.jpg" />
+    <Content Include="img\img %28131%29.jpg" />
+    <Content Include="img\img %28132%29.jpg" />
+    <Content Include="img\img %28133%29.jpg" />
+    <Content Include="img\img %28134%29.jpg" />
+    <Content Include="img\img %28135%29.jpg" />
+    <Content Include="img\img %28136%29.jpg" />
+    <Content Include="img\img %28137%29.jpg" />
+    <Content Include="img\img %28138%29.jpg" />
+    <Content Include="img\img %2814%29.jpg" />
+    <Content Include="img\img %2815%29.jpg" />
+    <Content Include="img\img %2816%29.jpg" />
+    <Content Include="img\img %2817%29.jpg" />
+    <Content Include="img\img %2818%29.jpg" />
+    <Content Include="img\img %2819%29.jpg" />
+    <Content Include="img\img %282%29.jpg" />
+    <Content Include="img\img %2820%29.jpg" />
+    <Content Include="img\img %2821%29.jpg" />
+    <Content Include="img\img %2822%29.jpg" />
+    <Content Include="img\img %2823%29.jpg" />
+    <Content Include="img\img %2824%29.jpg" />
+    <Content Include="img\img %2825%29.jpg" />
+    <Content Include="img\img %2826%29.jpg" />
+    <Content Include="img\img %2827%29.jpg" />
+    <Content Include="img\img %2828%29.jpg" />
+    <Content Include="img\img %2829%29.jpg" />
+    <Content Include="img\img %283%29.jpg" />
+    <Content Include="img\img %2830%29.jpg" />
+    <Content Include="img\img %2831%29.jpg" />
+    <Content Include="img\img %2832%29.jpg" />
+    <Content Include="img\img %2833%29.jpg" />
+    <Content Include="img\img %2834%29.jpg" />
+    <Content Include="img\img %2835%29.jpg" />
+    <Content Include="img\img %2836%29.jpg" />
+    <Content Include="img\img %2837%29.jpg" />
+    <Content Include="img\img %2838%29.jpg" />
+    <Content Include="img\img %2839%29.jpg" />
+    <Content Include="img\img %284%29.jpg" />
+    <Content Include="img\img %2840%29.jpg" />
+    <Content Include="img\img %2841%29.jpg" />
+    <Content Include="img\img %2842%29.jpg" />
+    <Content Include="img\img %2843%29.jpg" />
+    <Content Include="img\img %2844%29.jpg" />
+    <Content Include="img\img %2845%29.jpg" />
+    <Content Include="img\img %2846%29.jpg" />
+    <Content Include="img\img %2847%29.jpg" />
+    <Content Include="img\img %2848%29.jpg" />
+    <Content Include="img\img %2849%29.jpg" />
+    <Content Include="img\img %285%29.jpg" />
+    <Content Include="img\img %2850%29.jpg" />
+    <Content Include="img\img %2851%29.jpg" />
+    <Content Include="img\img %2852%29.jpg" />
+    <Content Include="img\img %2853%29.jpg" />
+    <Content Include="img\img %2854%29.jpg" />
+    <Content Include="img\img %2855%29.jpg" />
+    <Content Include="img\img %2856%29.jpg" />
+    <Content Include="img\img %2857%29.jpg" />
+    <Content Include="img\img %2858%29.jpg" />
+    <Content Include="img\img %2859%29.jpg" />
+    <Content Include="img\img %286%29.jpg" />
+    <Content Include="img\img %2860%29.jpg" />
+    <Content Include="img\img %2861%29.jpg" />
+    <Content Include="img\img %2862%29.jpg" />
+    <Content Include="img\img %2863%29.jpg" />
+    <Content Include="img\img %2864%29.jpg" />
+    <Content Include="img\img %2865%29.jpg" />
+    <Content Include="img\img %2866%29.jpg" />
+    <Content Include="img\img %2867%29.jpg" />
+    <Content Include="img\img %2868%29.jpg" />
+    <Content Include="img\img %2869%29.jpg" />
+    <Content Include="img\img %287%29.jpg" />
+    <Content Include="img\img %2870%29.jpg" />
+    <Content Include="img\img %2871%29.jpg" />
+    <Content Include="img\img %2872%29.jpg" />
+    <Content Include="img\img %2873%29.jpg" />
+    <Content Include="img\img %2874%29.jpg" />
+    <Content Include="img\img %2875%29.jpg" />
+    <Content Include="img\img %2876%29.jpg" />
+    <Content Include="img\img %2877%29.jpg" />
+    <Content Include="img\img %2878%29.jpg" />
+    <Content Include="img\img %2879%29.jpg" />
+    <Content Include="img\img %288%29.jpg" />
+    <Content Include="img\img %2880%29.jpg" />
+    <Content Include="img\img %2881%29.jpg" />
+    <Content Include="img\img %2882%29.jpg" />
+    <Content Include="img\img %2883%29.jpg" />
+    <Content Include="img\img %2884%29.jpg" />
+    <Content Include="img\img %2885%29.jpg" />
+    <Content Include="img\img %2886%29.jpg" />
+    <Content Include="img\img %2887%29.jpg" />
+    <Content Include="img\img %2888%29.jpg" />
+    <Content Include="img\img %2889%29.jpg" />
+    <Content Include="img\img %289%29.jpg" />
+    <Content Include="img\img %2890%29.jpg" />
+    <Content Include="img\img %2891%29.jpg" />
+    <Content Include="img\img %2892%29.jpg" />
+    <Content Include="img\img %2893%29.jpg" />
+    <Content Include="img\img %2894%29.jpg" />
+    <Content Include="img\img %2895%29.jpg" />
+    <Content Include="img\img %2896%29.jpg" />
+    <Content Include="img\img %2897%29.jpg" />
+    <Content Include="img\img %2898%29.jpg" />
+    <Content Include="img\img %2899%29.jpg" />
+    <Content Include="img\next.gif" />
+    <Content Include="img\preload.png" />
+    <Content Include="img\theauthor.jpg" />
+    <Content Include="Index.htm" />
+    <Content Include="lazyload.html" />
+    <Content Include="app\partials\property_listings.htm" />
+    <Content Include="Scripts\highlight.pack.js" />
+    <Content Include="Scripts\jPages.js" />
+    <Content Include="Scripts\jPages.min.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery.lazyload.js" />
+    <Content Include="Scripts\js.js" />
+    <Content Include="Scripts\tabifier.js" />
+    <Content Include="Styles\animate.css" />
+    <Content Include="Styles\github.css" />
+    <Content Include="Styles\jPages.css" />
+    <Content Include="Styles\style.css" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app\listings\listings.json" />
+    <None Include="app\listings\phones.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3815</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

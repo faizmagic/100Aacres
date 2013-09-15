@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>100 Acres</title>
+</head>
+<body ng-controller="propertyListCtrl">
+<div class="hot_property_box">
+<div class="hot_property_head_new">
+<div>Hot Properties for Sale  <pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-small" boundary-links="true" rotate="false" num-pages="numPages" on-select-page="setPage(page)" items-per-page="itemsPerPage"></pagination></div>
+<!--<img src="http://www.keralarealestate.com/images/hot-loader.gif" alt="" width="0" height="0" />-->
+<!--<div class="Hot_pro_title_arows_new" id="hotresultloader" align="center">-->
+<!--<div class="Hot_arow_more">More</div><div class="Hot_arow" style="padding-right:2px;padding-top:3px"><img src="http://www.keralarealestate.com/images/arrow_hot_L_inact.png" width="16" height="16" border="0"></div><div class="Hot_arow"><span class="Hot_arow" style="padding-right:2px;padding-top:3px"><a onclick="hboxpaginator('S2VyYWxh',2)" style="cursor:pointer;"><img src="ihttp://www.keralarealestate.com/images/arrow_hot_R.png" alt="" width="16" height="16" border="0"></a></span></div>
+</div>-->
+<!--</div>-->
+<!-- navigation holder -->
+
+
+<div id="listingContainer" class="hot_property_listing_new">
+    <div ng-repeat="property in properties">
+        <div class="real_hot_box">
+			<a href="http://www.keralarealestate.com/{{property.link}}">
+				<div class="Hot_Photo">
+				<img ng-src="http://www.keralarealestate.com/files/property_photos/{{property.imageurl}}" alt="property.description" width="117" height="80" /></div>
+				<div class="Hot_text">{{property.description}}</div>
+             </a>
+         </div>
+   </div>
+</div>
+</div>
+</body>
+</html>
