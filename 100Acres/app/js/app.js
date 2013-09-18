@@ -3,6 +3,7 @@ var app = angular.module('100acres', ['ngResource', 'ui.bootstrap.pagination']);
 
 app.factory('Property', function ($q, $http) {
     //return $resource('app/listings/listings.json', {}, { newListings: { method: 'GET', cache: true, isArray: true} });
+    var listings = [];
     return {
         newListings: function () {
             var deferred = $q.defer();
@@ -13,6 +14,21 @@ app.factory('Property', function ($q, $http) {
             });
 
             return deferred.promise;
+        }
+    }
+});
+
+app.factory('Page', function () {
+    return {
+        loadDataForCurrentPage: function (allListings, pageNo) {
+            var startIndex = (this.PageSettings.itemsPerPage * (pageNo - 1));
+            var endIndex = (startIndex) + this.PageSettings.itemsPerPage;
+            return allListings.slice(startIndex, endIndex);
+        },
+        PageSettings: {
+            itemsPerPage: 10,
+            maxSize: 5,
+            bigCurrentPage: 1
         }
     }
 });
