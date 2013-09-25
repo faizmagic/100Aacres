@@ -1,13 +1,28 @@
 ﻿
-var app = angular.module('100acres', ['ngResource', 'ui.bootstrap.pagination']);
+var app = angular.module('100acres', ['ngResource', 'ui.bootstrap.pagination', 'ui.bootstrap.carousel']);
 
 app.factory('Property', function ($q, $http) {
     //return $resource('app/listings/listings.json', {}, { newListings: { method: 'GET', cache: true, isArray: true} });
-    var listings = [];
     return {
         newListings: function () {
             var deferred = $q.defer();
             $http.get('app/listings/listings.json').success(function (data) {
+                deferred.resolve(data);
+            }).error(function (data, status) {
+                deferred.reject();
+            });
+
+            return deferred.promise;
+        }
+    }
+});
+
+app.factory('propertyDetail', function ($q, $http) {
+    return {
+        loadDetail: function (id) {
+            var deferred = $q.defer();
+            var url = 'app/listings/' + id + '.json';
+            $http.get(url).success(function (data) {
                 deferred.resolve(data);
             }).error(function (data, status) {
                 deferred.reject();
@@ -31,10 +46,12 @@ app.factory('Page', function () {
             bigCurrentPage: 1
         }
     }
-});
+1});
 
 app.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/properties', {templateUrl:'app/partials/property_listings.htm', controller:propertyListCtrl}).
+    $routeProvider.
+    when('/properties', {templateUrl:'app/partials/property_listings.htm', controller:propertyListCtrl}).
+    when('/properties/:Id', { templateUrl: 'app/partials/property_detail.htm', controller:propertyDetailCtrl}).
     otherwise({redirectTo:'/properties'});
 } ]);
 

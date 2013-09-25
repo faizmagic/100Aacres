@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+<link href="http://www.keralarealestate.com/css/property_listing.css" rel="stylesheet" type="text/css" />
+<link href="http://www.keralarealestate.com/css/inner_page_tabs.css" rel="stylesheet" type="text/css" />
+<link href="http://www.keralarealestate.com/css/Property_Details.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-controller="propertyDetailCtrl">
+    <div class="main_box">
+<div>
+<div id="hotbox1">
+<div align="left" class="Pro_DetailsBox">
+<div class="Pro_DetailsheadingBox">
+<div class="Pro_Detailsheading">{{details.title}}</div>
+<div><span class="Pro_Details_subheading">Price :  {{details.price}}</span>  | Posted on : {{details.postedOn}} | ID: {{details.id}}</div>
+</div>
+<div class="Pro_Details_text">{{details.detail}}</div>
+<div>
+<div class="pro_lc">
+<div class="Pro_location_left">
+  <p><span class="ProBlue">Type :</span>{{details.type}}</p>
+  <p><span class="ProBlue">Location :</span>{{details.location}}</p>
+  <p><span class="ProBlue">Transaction Type :</span>{{details.transactionType}}</p>
+  <p><span class="ProBlue">Property Age :</span>{{details.propertyAge}}</p>
+</div>
+<div class="Pro_location_left">
+  <p><span class="ProBlue">Bedroom(s) :</span>{{details.bedroom}}</p>
+  <p><span class="ProBlue">Bathroom(s) :</span>{{details.bathroom}}</p>
+  <p><span class="ProBlue">Build up Area :</span>{{details.buildUpArea}}</p>
+  <p><span class="ProBlue">Plot Area :</span>{{details.plotArea}}</p>
+</div>
+</div>
+</div>
+
+<carousel interval="myInterval">
+    <slide ng-repeat="slide in details.slides" active="slide.active">
+      <img ng-src="{{slide.image}}" style="margin:auto;">
+      <div class="carousel-caption">
+        <h4>Slide {{$index}}</h4>
+        <p>{{slide.text}}</p>
+      </div>
+    </slide>
+</carousel>
+<div class="Accordion_box"><div class="toggle1">
+	<ul>
+        <li class="t01" ng-click="toggle('showPropDesc')">Property Description</li>
+		    <div ng-show="showPropDesc">
+                <ul>
+                    <li ng-repeat="desc in details.propertyDescription">{{desc}}</li>
+                </ul>
+            </div>
+		<li class="t01">Property Features</li>
+			<div class="toggle_Box">
+              <ul ng-repeat="feature in details.propertyFeatures"></ul>
+            </div>
+        <li class="t01">Facilities / Amenities</li>
+									<div class="toggle_Box">
+                                        <ul>
+                                            <li ng-repeat="facility in detail.facilities"></li>
+                                        </ul>
+                                     </div>
+		<li class="t01">Other Features</li>
+									<div class="toggle_Box"><p><span class="extraBlue">Ownership (Builder / Individually owned / joint owned) : </span>&nbsp;&nbsp;{{details.otherFeatures.ownership}}</p><p><span class="extraBlue">Furnishing (Yes / No) : </span>&nbsp;&nbsp;{{details.otherFeatures.furnishing}}</p></div>
+		<li class="t01">Land Marks</li>
+									<div class="toggle_Box">
+                                        <li ng-repeat="landmark in details.landmarks"></li>
+									</div>
+        <li class="t01">Contact Details</li>
+									<div class="toggle_Box">
+									<Div class="Contact_Bt_box">
+									<div class="CBT_L">
+									<div style="clear:both"><div class="CBT_SB_L">Name: </div><div class="CBT_SB_R">{{details.contactDetails.name}}</div></div>
+									<div style="clear:both"><div class="CBT_SB_L"><strong>Address: </strong></div><div class="CBT_SB_R">{{details.contactDetails.address}}<br />
+<br />
+<br />
+<br />
+</div></div>
+									<div style="clear:both">
+									<div class="CBT_SB_L">Phone:</div>
+									<div class="CBT_SB_R">{{details.contactDetails.phone}}</div>
+									</div>
+									</div>
+									<div class="CBT_R">
+									<div class="SEQ_box" style="color:#09F">Send an Enquiry</div>
+									<div>
+									<div style="color:#FF0000" id="main_responseboard"></div>
+									<form name="frm_contactmain" id="frm_contactmain" method="post" action="" >
+									<div style="clear:both">
+									<div class="SeqF_L">
+  									<input name="main_cname" type="text" class="SEQ_Form" id="main_cname" value="Name"  onclick="this.value=''" />
+									</div>
+									<div class="SeqF_R">
+									<input name="main_cmail" type="text" class="SEQ_Form" id="main_cmail" value="Email Id" onclick="this.value=''" />
+									</div>
+									</div>
+									<div style="clear:both">
+									<div class="SeqF_L"><input name="main_cphone" type="text" class="SEQ_Form" id="main_cphone" value="Phone/Mob"  onclick="this.value=''" /></div>
+									<div class="SeqF_R"><input name="main_cplace" type="text" class="SEQ_Form" id="main_cplace" value="Place"  onclick="this.value=''" /></div>
+									</div>
+									<div style="clear:both; margin-left:5px;">
+									  <textarea name="main_message" id="main_message"  class="SEQ_Form1"cols="45" rows="10">I am interested in your 4 BHK  Independent House / Villa / Bungalow at North paravoor, Ernakulam. Please get in touch with me.</textarea>
+									</div>
+									<div class="SEQ_link">
+									<input type="hidden" name="main_refid" id="main_refid" value="17160">
+		  <input type="hidden" name="main_cntid" id="main_cntid" value="bmlzaGFsa3JAZ21haWwuY29t">
+		  <p class="antispam">Leave this empty:<input name="murl" id="murl" /></p>
+									  <input name="main_cbutton" type="button" style="color:#09F; font-weight:bold;" id="main_cbutton" value="Submit" />
+									</div>
+									</form>
+									</div>
+									</div>
+									</Div></div>        
+		
+	</ul>
+</div></div>
+</div>
+</div></div>
+</div>
+</body>
+</html>

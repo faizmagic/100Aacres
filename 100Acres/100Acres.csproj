@@ -61,17 +61,22 @@
     <Content Include="app\angular\angular.js" />
     <Content Include="app\angular\angular.min.js" />
     <Content Include="app\angular\version.txt" />
+    <Content Include="app\jplugins\carousel.js" />
     <Content Include="app\jplugins\jPages.js" />
     <Content Include="app\jplugins\jquery-1.8.2.min.js" />
     <Content Include="app\jplugins\pagination.js" />
     <Content Include="app\jplugins\ui-bootstrap-0.6.0.js" />
     <Content Include="app\js\app.js" />
+    <Content Include="app\js\propertyDetailController.js" />
     <Content Include="app\js\PropertyListController.js" />
+    <Content Include="app\partials\property_detail.htm" />
     <Content Include="app\styles\animate.css" />
     <Content Include="app\styles\bootstrap.css" />
     <Content Include="app\styles\github.css" />
     <Content Include="app\styles\jPages.css" />
     <Content Include="app\styles\style.css" />
+    <Content Include="app\template\carousel\carousel.html" />
+    <Content Include="app\template\carousel\slide.html" />
     <Content Include="app\template\pagination\pager.html" />
     <Content Include="app\template\pagination\pagination.html" />
     <Content Include="img\back.gif" />
@@ -259,6 +264,7 @@
   <ItemGroup>
     <None Include="app\listings\listings.json" />
     <None Include="app\listings\phones.json" />
+    <None Include="app\listings\1234.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
