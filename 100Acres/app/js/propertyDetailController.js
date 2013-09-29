@@ -8,7 +8,7 @@ function propertyDetailCtrl($scope, $routeParams, propertyDetail) {
         $scope[section] = !$scope[section];
     }
 
-    l//initialize hidden sections
+   //initialize hidden sections
     function initialize() {
         $scope.showPropDesc = false;
     }

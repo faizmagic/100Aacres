@@ -1,0 +1,78 @@
+﻿	{
+		"title":"House for sale at Kothakulam, Ernakulam",
+		"detail":"1900 sqft house on 4.5 cent land for sale at Kothakulam, Ernakulam.",
+		"price":"Rs: 50 Lakhs",
+		"postedOn":"07/09/2013",
+		"id":"ERR17160",
+		"type":"Independent House / Villa / Bungalow",
+		"location":"Kothakulam, North paravoor, Ernakulam",
+		"transactionType":"New Property / for Sale",
+		"propertyAge":"1.5 Years",
+		"bedroom":"4",
+		"bathroom":"4",
+		"buildUpArea":"1900 Sq.Feet",
+		"plotArea":"4.5 Cent",
+		"propertyDescription":[
+								"Conveniently Located to below: Distance to Church, Temple and Mosque:",
+								"Latin Christian Church: Less than 2 kilometers.",
+								"Syrian Christian Church: 250 Meters.",
+								"KottuvallyKavu Temple: Less than 3 KM",
+								"Mosque: Less than 3 KM",
+								"Distance to Bus Stop: 250 Meters",
+								"Kitharam High School: 2 KM away.",
+								"Super Markets: 200 Meters",
+								"Distance to High Ways: N.H-17 - 1 KM away (Construction In-Progress)",
+								"Chathanadu Highway - 2KM (Proposed Plan)",
+								"Distance to Town/City: Ernakulam City: 20 KM",
+								"Airport: 20 KM"
+								],
+		"propertyFeatures":[
+							"Vitrified Tiles/Granite flooring",
+							"Balcony",
+							"3 phase electricity",
+							"Sitout",
+							"Living room",
+							"Dining room",
+							"Tar road frontage"
+							],
+		"facilities":["3 Phase connection",
+					  "Car parking facility",
+					  "Vitrified Tiles",
+					  "24 hours water supply"
+					],
+		"otherFeatures":{"ownership":"Individually Owned", 
+						"furnishing":"Yes"},
+		"landmarks":["Kitharam High School: 2 KM away.",
+					 "Super Markets: 200 Meters.",
+					 "N.H-17 - 1 KM away (Construction In-Progress)"
+					],
+		"contactDetails":{"name":"K.R Ravi",
+						"address":"Kaimathuruthil House, North Paravoor, Kerala, India",
+						"phone":"0484-3192002, 9037948460"
+						},
+		"slides":[
+						{
+							"image":"http://www.keralarealestate.com/files/property_photos/539374736.jpg"
+						}
+					,	
+						{
+							"image":"http://www.keralarealestate.com/files/property_photos/742960705.jpg"
+						}
+					,
+						{
+							"image":"http://www.keralarealestate.com/files/property_photos/1109139916.jpg"
+						}
+					,
+						{
+							"image":"http://www.keralarealestate.com/files/property_photos/125104540.jpg"
+						}
+					
+				],
+		"thumbnails":[
+						"http://www.keralarealestate.com/files/property_photos/thumb_539374736.jpg",
+						"http://www.keralarealestate.com/files/property_photos/thumb_742960705.jpg",
+						"http://www.keralarealestate.com/files/property_photos/thumb_1109139916.jpg",
+						"http://www.keralarealestate.com/files/property_photos/thumb_125104540.jpg"
+						]
+
+	}

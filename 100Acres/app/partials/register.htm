@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Registration</title>
+</head>
+<body ng-controller="registerUserCtrl">
+<div class="signupright">
+<div class="signUp_formHead">
+<div class="Free_RegistrationHed">New Registration</div>
+</div>
+<div class="signUp_formbox">
+<div class="signUp_formbox2"><div id="error_box" style="height:10px; padding-bottom:10px;color:#d15224;font-size:11px;font-weight:bold;font-family:Arial, Helvetica, sans-serif" align="center"></div>
+<div class="signup_inputRow">
+<div style="padding-left:90px;">
+<div class="iambox" style="padding-top:3px; margin-right:15px;">I Am </div>
+<div class="iambox"><input type="radio" name="usertype" value="Owner" checked="checked" ng-model="User.UserType"/></div>
+<div class="iambox" style="padding-top:3px; margin-right:15px;">Owner</div><div class="iambox"><input type="radio" name="usertype" value="Builder" ng-model="User.UserType"/></div>
+<div class="iambox" style="padding-top:3px; margin-right:15px;">Builder</div><div class="iambox"><input type="radio" name="usertype" value="Agent" ng-model="User.UserType"/></div>
+<div class="iambox" style="padding-top:3px; margin-right:15px;">Agent</div>
+</div>
+</div>
+<div class="signup_inputRow">
+<div class="signup_inputbox1"><span class="signupstar"><strong>*</strong></span><strong> Firstname: </strong></div>
+<div class="signup_inputbox2"><input name="userreg_fname" type="text" class="signup_input" id="userreg_fname" ng-model="User.FirstName"/>
+</div>
+</div>
+
+<div class="signup_inputRow">
+<div class="signup_inputbox1"><span class="signupstar"><strong></strong></span><strong> Lastname: </strong></div>
+<div class="signup_inputbox2"><input name="userreg_lname" type="text" class="signup_input" id="userreg_lname" ng-model="User.LastName"/></div>
+</div>
+<div class="signup_inputRow">
+<div class="signup_inputbox1"><span class="signupstar"><strong>*</strong></span><strong> Email</strong> (Your Username)<strong>: </strong></div>
+<div class="signup_inputbox2"><input name="userreg_mail" type="text" class="signup_input" id="userreg_mail" ng-model="User.UserName"/></div>
+</div>
+<div class="signup_inputRow">
+  <div class="signup_inputbox1"><span class="signupstar"><strong>*</strong></span><strong> Site Password: </strong></div>
+  <div class="signup_inputbox2"><input name="userreg_pass" type="password" class="signup_input" id="userreg_pass" ng-model="User.Password"/></div>
+</div>
+<div class="signup_inputRow">
+  <div class="signup_inputbox1"><span class="signupstar"><strong>*</strong></span><strong>Confirm Site Password: </strong></div>
+  <div class="signup_inputbox2"><input name="userreg_repass" type="password" class="signup_input" id="userreg_repass" ng-model="User.ConfirmPassword"/></div>
+</div>
+<div class="signup_inputRow">
+<div class="signup_inputbox1"><span class="signupstar"></span><strong> Address: </strong></div>
+<div class="signup_inputbox2"><input name="userreg_address" type="text" class="signup_input" id="userreg_address" ng-model="User.Address"/></div>
+</div>
+<div class="signup_inputRow">
+<div class="signup_inputbox1"><strong> Location / City: </strong></div>
+<div class="signup_inputbox2"><input name="userreg_city" type="text" class="signup_input" id="userreg_city" ng-model="User.City"/></div>
+</div>
+<div class="signup_inputRow">
+  <div class="signup_inputbox1"><span class="signupstar"><strong>*</strong></span><strong> Mobile/ Phone No: </strong></div>
+  <div class="signup_inputbox2"><input name="userreg_phone" type="text" class="signup_input" id="userreg_phone" ng-model="User.PhoneNo"/></div>
+</div>
+<div style="text-align:right; padding-right:5px; padding-bottom:10px;">
+ <input type="hidden" name="form_optreg" id="form_optreg" value="2" />
+<input type="button" name="sub_userregn" id="sub_userregn"  class="signinButton2" style="height:25px" value="Create Account" ng-click="RegisterUser()"/></div>
+</div>
+</div>
+</div>
+</body>
+</html>

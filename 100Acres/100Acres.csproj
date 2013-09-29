@@ -13,6 +13,7 @@
     <RootNamespace>_100Acres</RootNamespace>
     <AssemblyName>100Acres</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,7 +70,9 @@
     <Content Include="app\js\app.js" />
     <Content Include="app\js\propertyDetailController.js" />
     <Content Include="app\js\PropertyListController.js" />
+    <Content Include="app\js\registerUserCtrl.js" />
     <Content Include="app\partials\property_detail.htm" />
+    <Content Include="app\partials\register.htm" />
     <Content Include="app\styles\animate.css" />
     <Content Include="app\styles\bootstrap.css" />
     <Content Include="app\styles\github.css" />
@@ -276,8 +279,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3815</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost/100Acres</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

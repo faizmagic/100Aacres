@@ -6,7 +6,7 @@ app.factory('Property', function ($q, $http) {
     return {
         newListings: function () {
             var deferred = $q.defer();
-            $http.get('app/listings/listings.json').success(function (data) {
+            $http.get('http://localhost/100AcresAPI/api/property').success(function (data) {
                 deferred.resolve(data);
             }).error(function (data, status) {
                 deferred.reject();
@@ -46,12 +46,28 @@ app.factory('Page', function () {
             bigCurrentPage: 1
         }
     }
-1});
+});
+
+app.factory('Register', function ($q, $http) {
+    return {
+        newUser: function (user) {
+            var deferred = $q.defer();
+            $http.post('http://localhost/100AcresAPI/api/register', user).success(function (data, status) {
+                deferred.resolve(data);
+            }).error(function (data) {
+                deferred.reject();
+            });
+
+            return deferred.promise;
+        }
+    }
+});
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
     when('/properties', {templateUrl:'app/partials/property_listings.htm', controller:propertyListCtrl}).
-    when('/properties/:Id', { templateUrl: 'app/partials/property_detail.htm', controller:propertyDetailCtrl}).
+    when('/properties/:Id', { templateUrl: 'app/partials/property_detail.htm', controller: propertyDetailCtrl }).
+    when('/register', {templateUrl: 'app/partials/register.htm', controller: registerUserCtrl}).
     otherwise({redirectTo:'/properties'});
 } ]);
 
