@@ -8,6 +8,10 @@
 <link href="http://www.keralarealestate.com/css/property_listing.css" rel="stylesheet" type="text/css" />
 <link href="http://www.keralarealestate.com/css/inner_page_tabs.css" rel="stylesheet" type="text/css" />
 <link href="http://www.keralarealestate.com/css/Property_Details.css" rel="stylesheet" type="text/css" />
+<link href="http://www.keralarealestate.com/css/login_and_registration.css" rel="Stylesheet" type="text/css" />
+<link href="http://www.keralarealestate.com/css/reset.css" rel="Stylesheet" type="text/css" />
+<link href="http://www.keralarealestate.com/css/register.css" rel="Stylesheet" type="text/css" />
+<link href="http://www.keralarealestate.com/css/inner_page_tabs.css" rel="Stylesheet" type="text/css" />
 <link href="app/styles/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="Styles/jPages.css" rel="Stylesheet", type="text/css" />
 <script src="app/jplugins/jquery-1.8.2.min.js" type="text/javascript"></script>
@@ -24,27 +28,235 @@
     <title>100 Acres</title>
 </head>
 <body>
-    <!--<div class="hot_property_box">
-<div class="hot_property_head_new">
-<div class="Hot_pro_title_new"><a name="hotparam"></a>Hot Properties for Sale <br />
-</div>
-<img src="http://www.keralarealestate.com/images/hot-loader.gif" alt="" width="0" height="0" />
-<div class="Hot_pro_title_arows_new" id="hotresultloader" align="center">
-<div class="Hot_arow_more">More</div><div class="Hot_arow" style="padding-right:2px;padding-top:3px"><img src="http://www.keralarealestate.com/images/arrow_hot_L_inact.png" width="16" height="16" border="0"></div><div class="Hot_arow"><span class="Hot_arow" style="padding-right:2px;padding-top:3px"><a onclick="hboxpaginator('S2VyYWxh',2)" style="cursor:pointer;"><img src="ihttp://www.keralarealestate.com/images/arrow_hot_R.png" alt="" width="16" height="16" border="0"></a></span></div>
+<div id="top_kerala_Menu">
+<div class="top_keralamenu_box">
+<div class="topmenu_new">100acres.com - The Premier Real Estate Portal of Kerala</div>
+<br>
 </div>
 </div>
-<div class="hot_property_listing_new" ng-controller="propertyListCtrl">
-    <div>
-        <div class="real_hot_box" ng-repeat="property in properties">
-			<a href="http://www.keralarealestate.com/{{property.link}}">
-				<div class="Hot_Photo">
-				<img ng-src="http://www.keralarealestate.com/{{property.imageurl}}" alt="property.description" width="117" height="80" /></div>
-				<div class="Hot_text">{{property.description}}</div>
-             </a>
-         </div>
-   </div>
+<div id="mainwrap">
+<div id="topcontainer">
+  <div class="topGrey_box">
+  <div class="topRmenu"><a href="">About Us</a> | <a href="contact">Contact Us</a> |  <a href="#/register">Register</a> | <a href="signin">Login</a> </div>
+  </div>
+  <div>
+  <h1 id="logo"><a href="../index.php">100 Acres</a></h1>
+  <div id="worldviewer">
+  <div class="TopBanner_Adv">
+    <div align="center">
+									<a href="http://www.keralatravels.com/" target="_blank">
+									<img src="http://www.keralarealestate.com/files/bannerimages/1380190298.jpg" width="475" height="70" style="border:1px #000 solid" alt="keralatravels">									
+									</a></div>
+  </div>
+  <div class="worldviewer"><img src="http://www.keralarealestate.com/images/worldviewer-logo.png" alt="Kerala Realestate"></div>
+  </div>
+  </div>
+</div>      
+<div id="nav_box">
+<div id="main_menu">
+<div class="example">
+    <div id="tabs-container">
+        <ul class="tabs">
+        <li><a href="#" onclick="openurl('index.php');">Home</a></li>
+          <li><a href="#" onclick="openurl('createproperty');">Sell Property </a></li>
+            <li><a href="#" onclick="openurl('postrequirement');">Post Requirement</a></li>
+			<li><a href="#" onclick="openurl('pricing');">Plans & Pricing</a></li>
+			<li><a href="#" onclick="openurl('askandanswer.php');">Ask & Answer</a></li><li><a href="#">Kerala</a></li><li><a href="#">Outside Kerala</a></li><li class="top_menu_phone"><img src="images/real_mob_number.png" width="165" height="23"></li></ul>
+  </div>
+
+<!-- defining top menu -->
+    <div id="nav-container">        
+       <ul class="nav" id="1" style="display:none;">                     
+        </ul>
+        <ul class="nav" id="2" style="display:none;">               
+        </ul>
+		 <ul class="nav" id="3" style="display:none;">           
+        </ul> 
+		<ul class="nav" id="4" style="display:none;">           
+        </ul>        
+       <ul class="nav" id="5" style="display:none;">                    
+        </ul>
+         <ul class="nav" id="6" >
+								<li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Alappuzha">Alappuzha</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Ernakulam">Ernakulam</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Idukki">Idukki</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Kollam">Kollam</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Kottayam">Kottayam</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Kannur">Kannur</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Pathanamthitta">Pathanamthitta</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Palakkad">Palakkad</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Thiruvananthapuram">Thiruvananthapuram</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Thrissur">Thrissur</a></li><li><a href="#">Browse More</a>
+                					<!-- defining sub menu elements -->
+                					<ul class="sub"><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Kozhikode">Kozhikode</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Kasargod">Kasargod</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Malappuram">Malappuram</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Wayanad">Wayanad</a></li></ul>
+           							</li></ul><ul class="nav" id="7" style="display:none;">
+								<li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Banglore">Banglore</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Mangalore">Mangalore</a></li><li><a href="http://www.keralarealestate.com/property-for-Sale-Rent-Tamilnadu">Tamilnadu</a></li></ul>		  
+    </div>
 </div>
-</div>-->
-<div ng-view></div>
+<div>
+<div id="Tab_Box">
+    <div class="verticalslider" id="textExample">
+        <ul class="verticalslider_tabs" style="padding-top:45px;">
+            <li><a href="#">Properties</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Agents</a></li>
+            <li><a href="#">Builders</a></li>                      
+        </ul>
+        <ul class="verticalslider_contents"> 
+        <li class="activeContent" style="height:200px">       
+           <div class="verticalslider_contents">
+           <div class="form_wight">
+           <div class="form_head">Search <span id="typelabel_setter">Residential property</span> in <span id="regn_setter">Kerala</span>
+           </div>
+           <div class="form_body">
+            <div class="search_form_box_row1">
+                <div class="form_box_left">
+                <div class="form_row_vertical">
+                <div class="f1">I want to:</div>
+                <div class="f2">
+                <div class="f3">
+				<input type="radio" name="post_type" id="post_type" value="1" onclick="refreshbudget(1)" checked="checked" />
+				</div><div class="f4">Buy</div><div class="f3">
+				<input type="radio" name="post_type" id="post_type" value="2" onclick="refreshbudget(2)"  />
+				</div><div class="f4">Rent</div><div class="f3">
+				<input type="radio" name="post_type" id="post_type" value="3" onclick="refreshbudget(2)"  />
+				</div><div class="f4">P G</div><div class="f3">
+				<input type="radio" name="post_type" id="post_type" value="4" onclick="refreshbudget(1)"  />
+				</div><div class="f4">Lease</div>
+</div>
+</div>
+<div class="form_row_vertical">
+<div class="f1">Bedroom:</div>
+<div class="f2" id="bedcontainer">
+  <select name="bedno"  style="width:90px" class="f_style" id="bedno">
+    <option value="">Any</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9+">9+</option>
+  </select>
+</div>
+</div>
+<div class="form_row_vertical">
+<div class="f1">City:</div>
+<div class="f2">
+  <select name="city"  style="width:170px" class="f_style" id="city" onchange="refreshloadpropsearch()"></select>
+  </div>
+</div>
+<div class="form_row_vertical">
+<div class="f1">Keyword:</div>
+<div class="f2">
+  <input type="text" name="prop_key" id="prop_key" class="f_style" style="height:16px; width:164px" value="Eg.Project, Builder, Amenities etc"  onclick="this.value=''"  />
+</div>
+</div>
+</div>
+<div class="form_box_right">
+<div class="form_row_vertical">
+<div class="f1">Type:</div>
+<div class="f2">  
+  <select name="prop_type" id="prop_type"  style="width:97%" class="f_style" onchange="refreshloadpropsearch()">
+</select>
+</div>
+</div>
+<div class="form_row_vertical">
+<div class="f1">Budget:</div>
+<div class="f2">
+<div class="f1a" id="budgetmin"><select name="bdgt_min"  style="width:80px" class="f_style" id="bdgt_min">
+  <option value="">Min</option>
+  <option value="1">1 Lac</option>
+  <option value="2">5 Lac</option>
+  <option value="3">10 Lac</option>
+  <option value="4">20 Lac</option>
+  <option value="5">30 Lac</option>
+  <option value="6">40 Lac</option>
+  <option value="7">50 Lac</option>
+  <option value="8">60 Lac</option>
+  <option value="9">70 Lac</option>
+  <option value="10">80 Lac</option>
+  <option value="11">90 Lac</option>
+  <option value="12">1 Crore</option>
+  <option value="13">1.2 Crore</option>
+  <option value="14">1.5 Crore</option>
+  <option value="15">2 Crore</option>
+  <option value="16">2.5 Crore</option>
+  <option value="17">3 Crore</option>
+  <option value="18">3.5 Crore</option>
+  <option value="19">4 Crore</option>
+  <option value="20">5 Crore</option>
+  <option value="21">10 Crore</option>
+  <option value="22">20 Crore</option>
+  <option value="23">30 Crore</option>
+  <option value="24">40 Crore</option>
+  <option value="25">50 Crore</option>
+  <option value="26">&gt; 50 Crore</option>
+</select></div>
+<div class="f1a1">
+  <div align="right">To </div>
+</div>
+<div class="f1a" id="budgetmax"><select name="bdgt_max"  style="width:80px" class="f_style" id="bdgt_max">
+<option value="">Max</option>
+  <option value="1">1 Lac</option>
+  <option value="2">5 Lac</option>
+  <option value="3">10 Lac</option>
+  <option value="4">20 Lac</option>
+  <option value="5">30 Lac</option>
+  <option value="6">40 Lac</option>
+  <option value="7">50 Lac</option>
+  <option value="8">60 Lac</option>
+  <option value="9">70 Lac</option>
+  <option value="10">80 Lac</option>
+  <option value="11">90 Lac</option>
+  <option value="12">1 Crore</option>
+  <option value="13">1.2 Crore</option>
+  <option value="14">1.5 Crore</option>
+  <option value="15">2 Crore</option>
+  <option value="16">2.5 Crore</option>
+  <option value="17">3 Crore</option>
+  <option value="18">3.5 Crore</option>
+  <option value="19">4 Crore</option>
+  <option value="20">5 Crore</option>
+  <option value="21">10 Crore</option>
+  <option value="22">20 Crore</option>
+  <option value="23">30 Crore</option>
+  <option value="24">40 Crore</option>
+  <option value="25">50 Crore</option>
+  <option value="26">&gt; 50 Crore</option>
+</select></div>
+</div>
+</div>
+<div class="form_row_vertical">
+<div class="f1">Locality:</div>
+<div class="f2">
+<input type="text" name="locality" id="locality" class="f_style" style="height:16px; width:184px" value="" />
+</div>
+</div>  
+<div class="form_row_vertical">
+<div class="f1">Posted by:</div>
+<div class="f2">
+  <div class="f3">
+								<input type="checkbox" name="owner_type[]" id="owner_type[]" value="2" />
+								</div><div class="f4">Owner </div><div class="f3">
+								<input type="checkbox" name="owner_type[]" id="owner_type[]" value="3" />
+								</div><div class="f4">Builder </div><div class="f3">
+								<input type="checkbox" name="owner_type[]" id="owner_type[]" value="4" />
+								</div><div class="f4">Agent </div>
+</div>
+</div>
+</div>
+</div>
+            </div>
+
+           <div class="f_button_box">
+            <input type="hidden" name="project_type" id="project_type" value="6#0#Projects" />
+            <div class="F_button" style="width:105px"><button id="registerNew" type="button" onclick="postpropertysearch();">Search</button></div>
+    </div>
+    </div>
+
+</div>
+        </li>
+        </ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <div ng-view></div>
+</div>
 </body>
 </html>

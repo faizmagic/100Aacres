@@ -63,6 +63,14 @@ app.factory('Register', function ($q, $http) {
     }
 });
 
+app.factory('styleSheet', function () {
+    return {
+        loadCss: function (name) {
+            
+        }
+    }
+});
+
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
     when('/properties', {templateUrl:'app/partials/property_listings.htm', controller:propertyListCtrl}).

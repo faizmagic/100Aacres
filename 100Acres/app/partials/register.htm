@@ -4,6 +4,35 @@
     <title>Registration</title>
 </head>
 <body ng-controller="registerUserCtrl">
+<div class="main_box">
+<div class="Sign_in_box">
+<div class="Signin_main_Box"><div id="preset_msg"></div>
+
+<div id="sid_error" style="display:none;color:#d15224;font-size:12px;font-weight:bold;font-family:Arial, Helvetica, sans-serif" align="center"> Invalid Login Email !</div>
+
+<div id="spass_error" style="display:none;color:#d15224;font-size:12px;font-weight:bold;font-family:Arial, Helvetica, sans-serif" align="center"> Password Missing !</div>
+
+<div id="ext_error" style="display:none;color:#d15224;font-size:12px;font-weight:bold;font-family:Arial, Helvetica, sans-serif" align="center">Login not found ! Try Again..</div>
+
+<div class="Sign_inhead">Sign in to  100acres.com</div>
+<div id="logincontainer">
+<form name="frm_userlogin" id="frm_userlogin" method="post"  action="" >
+  <div class="s_formbox1">
+  <div class="signBox1"><strong>User Email</strong></div>
+  <div class="signBox2" style="margin-right:80px">
+  <input name="log_usermail" type="text" class="sign_instyle" id="log_usermail" /></div>
+  <div class="signBox1_pass"><strong>Site Password</strong></div>
+  <div class="signBox2">
+  <input name="log_userpass" type="password" class="sign_instyle" id="log_userpass" /></div>
+  </div>
+  <div class="signinbox"><div>
+  <input type="hidden" name="form_opt" id="form_opt" value="1" />
+  <input type="button" name="sub_userlogin" id="sub_userlogin"  class="signinButton" style="height:25px" value="Sign in" /></div></div>
+</form>
+</div>
+</div>
+<div class="forgetPW" id="linkcontainer"><a class="blue" onclick="loadpassrecoveryform();" style="cursor:pointer;">Did you forget your Site password?</a></div>
+</div>
 <div class="signupright">
 <div class="signUp_formHead">
 <div class="Free_RegistrationHed">New Registration</div>
@@ -56,6 +85,7 @@
 <div style="text-align:right; padding-right:5px; padding-bottom:10px;">
  <input type="hidden" name="form_optreg" id="form_optreg" value="2" />
 <input type="button" name="sub_userregn" id="sub_userregn"  class="signinButton2" style="height:25px" value="Create Account" ng-click="RegisterUser()"/></div>
+</div>
 </div>
 </div>
 </div>

@@ -15,9 +15,22 @@ namespace _100AcresAPI.Controllers
     {
         public HttpResponseMessage PostRegisterUser(User user)
         {
-            //Membership.ValidateUser(
-            var response = Request.CreateResponse(HttpStatusCode.OK, user);
+            HttpResponseMessage response = null;
+            try
+            {
+                //Save the user data to DB
+                //if success set the cookie and authenticate the user
+                FormsAuthentication.SetAuthCookie(user.UserName, true);
+                //Membership.ValidateUser(
+                response = Request.CreateResponse(HttpStatusCode.OK, user);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
             return response;
+
         }
     }
 }
