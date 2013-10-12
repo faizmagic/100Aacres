@@ -7,12 +7,14 @@ using System.Web.Http;
 using _100AcresAPI.Models;
 using Newtonsoft.Json;
 using System.IO;
+using System.Net.Http;
+using System.Net;
 
 namespace _100AcresAPI.Controllers
 {
     public class PropertyController : ApiController
     {
-        
+        //[HttpHeaderAttribute("Access-Control-Allow-Origin", "*")]
         public IEnumerable<Listings> GetListings()
         {
             return LoadListingsFromJson();
@@ -27,7 +29,10 @@ namespace _100AcresAPI.Controllers
                 string json = r.ReadToEnd();
                 listings = JsonConvert.DeserializeObject<List<Listings>>(json);
             }
-
+            HttpContext context = HttpContext.Current;
+            context.Response.AppendHeader("Access-Control-Allow-Origin", "http://localhost:3815");
+            //HttpResponseMessage response = Request.CreateResponse<IEnumerable<Listings>>(HttpStatusCode.OK, listings);
+            //response.Headers.Add("Access-Control-Allow-Origin", "*");
             return listings;
         }
     }

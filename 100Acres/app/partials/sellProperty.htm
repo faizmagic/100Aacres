@@ -1,0 +1,706 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="main_box">
+
+
+<div id="hotbox1">
+<div class="PostPro_head">Update Property Listing</div>
+<div class="Post_Tabbox">
+<div class="FTab1"><a href="#/sell" class="link_ap" ng-click="tabs.click('displayGeneralInformation')">General Information</a></div>
+									 <div class="FTab2"><a href="#/sell" class="link_ap1" ng-click="tabs.click('displayPropertyFeatures')">Property Features</a></div>
+									 <div class="FTab3"><a href="#/sell" class="link_ap1" ng-click="tabs.click('displayUploadPhoto')">Photos/Floor Plans</a></div>
+									 <div class="FTab4"><a href="createproperty?mode=edit&id=18375&step=4" class="link_ap1">Activate Posting</a></div>
+</div>
+<div class="FT_main_box" ng-show="tabs.displayGeneralInformation">
+<div class="ProLis_FormBox">
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Post Property for<span class="ProLis_star">*</span></div>
+<div class="ProLis_FormBoxright">
+<div class="p1_box">
+		<input type="radio" name="posttype" id="posttype" value="1" checked></div>
+<div class="p1_box" style="margin-top:4px; margin-right:12px"><strong>Sale</strong></div><div class="p1_box">
+		<input type="radio" name="posttype" id="posttype" value="2" ></div>
+<div class="p1_box" style="margin-top:4px; margin-right:12px"><strong>Rental</strong></div><div class="p1_box">
+		<input type="radio" name="posttype" id="posttype" value="3" ></div>
+<div class="p1_box" style="margin-top:4px; margin-right:12px"><strong>P G</strong></div><div class="p1_box">
+		<input type="radio" name="posttype" id="posttype" value="4" ></div>
+<div class="p1_box" style="margin-top:4px; margin-right:12px"><strong>Lease</strong></div>
+
+<div class="message_error" id="ptype_error" style="display:none;">Please Select Type of Posting</div>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Property Category<span class="ProLis_star">*</span></div>
+<div class="ProLis_FormBoxright">
+<select style="width:190px; height:27px; border-radius:5px;" class="ProLis_input" id="prop_category" name="prop_category" onChange="populateTypelist(this.value);">
+<option value="0">Select a Category</option>                            
+    <option  value="1">Residential</option><option  value="2">Commercial</option><option  value="3">SEZ</option><option selected="selected" value="4">Land</option><option  value="6">Projects</option> 
+</select>
+<div class="message_error" id="pcateg_error" style="display:none;">Please select a Category</div>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Type of Property<span class="ProLis_star">*</span></div>
+<div class="ProLis_FormBoxright">
+<div id="proptypelist"> 
+    <select name="proptype" id="proptype" style="width:190px; height:27px; border-radius:5px;" class="ProLis_input">
+      									<option value="">Select Type</option><option selected="selected" value="7">Residential Land / Plot</option><option  value="8">Commercial / Industrial Land</option><option  value="26">Agricultural Land</option><option  value="25">Plantation / Estate</option><option  value="33">Commercial cum Residential </option></select>   
+</div>
+<div class="message_error" id="proptype_error" style="display:none;">Please select Type of Property</div>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">
+Brief Title for the Ad.<span class="ProLis_star">*</span></div>
+<div class="ProLis_FormBoxright">
+<input name="prop_title" type="text" class="ProLis_input" style="width:390px" id="prop_title" value="7.5 Cent Residential Land Kadungaloor, Aluva" />
+<div class="message_error" id="proptitle_error" style="display:none;">Please enter a Title for the Property</div>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Age of Property</div>
+<div class="ProLis_FormBoxright">
+<input name="prop_age" type="text" class="ProLis_input" style="width:70px" id="prop_age" value="" />
+<strong style="padding-left:5px"> years</strong> (No. of Years - 1, 2, 5..)
+<div class="message_error" id="propage_error" style="display:none;">Please use Numbers only</div>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Property Status</div>
+<div class="ProLis_FormBoxright">
+<select name="prop_status" style="width:85px; height:26px; border-radius:5px;" class="ProLis_input" id="prop_status">
+      <option value="" >Any</option>
+                		<option value="New" >New</option>
+                		<option value="Resale" >Resale</option>
+</select>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow" id="propresidentparam" style="display:none;">
+<div class="ProLis_FormBoxLeft">No. of Bedrooms</div>
+<div class="ProLis_FormBoxright">
+<input name="prop_rooms" type="text" class="ProLis_input" style="width:70px" id="prop_rooms" value="" />
+<div class="message_error" id="propbed_error" style="display:none;">Please enter value in Numbers</div>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow" id="propresidentparam2" style="display:none;">
+<div class="ProLis_FormBoxLeft">No. of Bathrooms</div>
+<div class="ProLis_FormBoxright">
+<input name="prop_bath" type="text" class="ProLis_input" style="width:70px" id="prop_bath" value="" />
+<div class="message_error" id="propbath_error" style="display:none;">Please enter value in Numbers</div>
+</div>
+</div>
+
+
+<div class="ProLis_FormBoxRow" id="propbuildparam" style="display:none;">
+<div class="ProLis_FormBoxLeft">Build up Area </div>
+<div class="ProLis_FormBoxright">
+<div class="p1_box" style="width:100px">
+<input name="prop_buildup" type="text" class="ProLis_input" style="width:80px" id="prop_buildup" value="" />
+</div>
+<div class="p1_box"><select name="buildupunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" id="buildupunits">
+      <option value="" selected="selected">Select</option>                              
+                         <option value="Sq.Feet" >Sq.Feet</option>
+                         <option value="Sq.Mtr" >Sq.Mtr</option>
+                         <option value="Cent" >Cent</option>
+                         <option value="Acre" >Acre</option>
+    </select></div>
+ 
+</div>
+</div>
+
+
+<div class="ProLis_FormBoxRow" id="propbuildparam2" style="display:none;">
+<div class="ProLis_FormBoxLeft">Plot Area </div>
+<div class="ProLis_FormBoxright">
+<div class="p1_box" style="width:100px">
+<input name="prop_plot" type="text" class="ProLis_input" style="width:80px" id="prop_plot" value="" />
+</div>
+<div class="p1_box"><select name="plotunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" id="plotunits">
+      <option value="" selected="selected">Select</option>                              
+                         <option value="Sq.Feet" >Sq.Feet</option>
+                         <option value="Sq.Mtr" >Sq.Mtr</option>
+                         <option value="Cent" >Cent</option>
+                         <option value="Acre" >Acre</option>
+    </select></div>
+</div>
+</div>
+
+
+<div class="ProLis_FormBoxRow" id="proplandparam" >
+<div class="ProLis_FormBoxLeft">Land Area </div>
+<div class="ProLis_FormBoxright">
+<div class="p1_box" style="width:100px">
+<input name="prop_land" type="text" class="ProLis_input" style="width:80px" id="prop_land" value="7.5" />
+</div>
+<div class="p1_box"><select name="landunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" id="landunits">
+      <option value="" >Select</option>                              
+                         <option value="Sq.Feet" >Sq.Feet</option>
+                         <option value="Sq.Mtr" >Sq.Mtr</option>
+                         <option value="Cent" selected="selected">Cent</option>
+                         <option value="Acre" >Acre</option>
+    </select></div>
+</div>
+</div>
+
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Property Price </div>
+<div class="ProLis_FormBoxright">
+<div class="p1_box" style="margin-top:4px; margin-right:4px"><strong>Rs:</strong></div>
+<div class="p1_box" style="width:100px">
+<input name="propprice" type="text" class="ProLis_input" style="width:80px" id="propprice" value="4" /></div>
+<div class="p1_box">
+ <input name="perunit" type="radio" id="perunit" value="gross"  onClick="propunits.disabled=true">
+</div>
+<div class="p1_box" style="margin-top:4px; margin-right:10px"><strong>Gross</strong></div>
+<div class="p1_box">
+<input type="radio" name="perunit" id="perunit" value="unit" checked onClick="propunits.disabled=false"></div>
+<div class="p1_box" style="margin-top:4px; margin-right:10px"><strong>Per Unit</strong></div>
+<div class="p1_box">
+<select name="propunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" id="propunits" >
+   <option value="" >Select</option>                              
+                         <option value="Sq.Feet" >Sq.Feet</option>
+                         <option value="Sq.Mtr" >Sq.Mtr</option>
+                         <option value="Cent" selected="selected">Cent</option>
+                         <option value="Acre" >Acre</option>
+</select></div>
+<div  class="p1_box" id="propprice_error" style="margin-left:22px; width:320px; display:none;">
+<span class="message_error">Please enter price in Number format</span></div>
+
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Price Negotiable </div>
+
+<div class="ProLis_FormBoxright">
+ <input name="price_negotiable" type="checkbox" id="price_negotiable" value="Y" checked>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow" style="height:70px;">
+<div class="ProLis_FormBoxLeft">Brief Description <span class="ProLis_star">*</span><br>
+  <span style="font-weight:normal">(Max: 300 Chars)</span></div>
+<div class="ProLis_FormBoxright">
+  <textarea name="propintro" id="propintro" class="ProLis_input" cols="45" rows="5" style="width:390px; height:60px">7.5 Cent Residential Land Kadungaloor, Aluva for sale. posh residential area with 7 and 5 meter access road to property</textarea>
+<div class="message_error" id="propintro_error" style="display:none;">Please add Brief description of the Property</div>
+</div>
+</div>
+
+<div style="height:25px">
+<div class="ProLis_FormBoxLeft">Property Details </div>
+<div style="float:right; width:30px; padding-right:10px;">.</div>
+</div>
+
+<div style="margin-bottom:10px"><textarea name="prop_description" id="prop_description" class="ProLis_input" cols="45" rows="5" style="width:97%; height:250px;">The property is conveniently located and has easy access to the following
+
+Aluva Town - 4 Km
+Container Terminal Road - 6 km
+Bus stop - less than 0.5 km
+UC College - 3 km
+Rajashree public school - 3 km
+</textarea></div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Region<span class="ProLis_star">*</span></div>
+<div class="ProLis_FormBoxright">
+<select name="propdist" style="width:190px; height:27px; border-radius:5px;" class="ProLis_input" id="propdist" onChange="populatecitylist(this.value);">
+    <option value="0">Select Region</option>                            
+             <option selected="selected" value="1">Kerala</option><option  value="2">Outside Kerala</option>
+    </select>
+<div class="message_error" id="region_error" style="display:none;">Please Select Region of Property</div>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">District / Area <span class="ProLis_star">*</span></div>
+<div class="ProLis_FormBoxright">
+<div id="citylist">  
+    <select name="propcity" id="propcity" style="width:190px; height:27px; border-radius:5px;" class="ProLis_input" onchange="controllocationfield(this.value);">
+                             		 <option value="0">Select District/Area</option><option  value="1">Alappuzha</option><option selected="selected" value="2">Ernakulam</option><option  value="3">Idukki</option><option  value="8">Kannur</option><option  value="7">Kasargod</option><option  value="4">Kollam</option><option  value="5">Kottayam</option><option  value="6">Kozhikode</option><option  value="9">Malappuram</option><option  value="11">Palakkad</option><option  value="10">Pathanamthitta</option><option  value="12">Thiruvananthapuram</option><option  value="13">Thrissur</option><option  value="14">Wayanad</option></select>  
+</div>
+<div class="message_error" id="propcity_error" style="display:none;">Please Select District / Area of Property</div>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">City <span class="ProLis_star">*</span></div>
+<div class="ProLis_FormBoxright">
+<input name="proplocation" type="text" class="ProLis_input" id="proplocation" value="" onKeyUp="javascript:autosuggestlocation()"  autocomplete="off" />
+<div id="resultslocation" style="display:none;"></div>
+<div class="message_error" id="proplocation_error" style="display:none;">Please post City of Property</div>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Location :</div>
+<div class="ProLis_FormBoxright">
+<input name="loc_place" type="text" class="ProLis_input" id="loc_place" value="Aluva" />
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Contact Name</div>
+<div class="ProLis_FormBoxright">
+<input name="prop_contactname" type="text" class="ProLis_input" id="prop_contactname" value="Faiz Mohammed" />
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow" style="height:63px">
+<div class="ProLis_FormBoxLeft">Contact Address </div>
+<div class="ProLis_FormBoxright">
+<textarea name="prop_contactaddress" id="prop_contactaddress" class="ProLis_input" cols="45" rows="5" style="width:390px; height:55px">
+
+
+</textarea>
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Contact Phone</div>
+<div class="ProLis_FormBoxright">
+<input name="prop_contactphone" type="text" class="ProLis_input" id="prop_contactphone" value="09987820821" />
+</div>
+</div>
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLeft">Contact Mobile  :</div>
+<div class="ProLis_FormBoxright">
+<input name="prop_contactmobile" type="text" class="ProLis_input" id="prop_contactmobile" value="09987820821" />
+</div>
+</div>
+
+
+<div class="ProLis_FormBoxRow">
+  <div class="ProLis_FormBoxright" style="padding-top:8px;">
+  <div class="p1_box" style="margin-right:15px; width:80px">
+  <input type="hidden" name="mode" id="mode" value="edit" />
+  <input type="hidden" name="id" id="id" value="18375" />
+  <input type="reset" name="reset_propinfo" id="reset_propinfo"  class="ProLisbutton" style="height:25px" value="Reset" /></div>
+<div class="p1_box"><input type="button" name="sub_propinfo" id="sub_propinfo"  class="ProLisbutton" style="height:25px" value="Save" /></div>
+</div>
+</div>
+</div>
+</div>
+<!--Property Features-->
+<div class="FT_main_box" ng-show="tabs.displayPropertyFeatures">
+<div class="ProLis_FormBox">
+ <div style="height:25px; margin-bottom:2px">
+    									<div class="ProLis_FormBoxLeft_new">Features Available with the Property</div>
+ 										</div>
+										<div class="Property_FeaturesBox"><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="132" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; "> Borewell Water Source 
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="40" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">2 side road
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="149" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">3 Phase Electricity connection
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="33" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">3 side road
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="24" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Bus route frontage
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="28" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Calm and Quite area
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="102" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Cardamom cultivation
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="30" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">CHR Pattayam
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="85" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Coffee
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="101" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Commercial / Residential purpose
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="21" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Compound wall 
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="88" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Compound wall and gate
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="139" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Electricity facility
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="155" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Full of greenery
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="39" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Gated Colony
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="144" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Good residential area
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="29" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">LA Pattayam
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="156" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Lorry Access
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="104" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Main road frontage
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="27" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Mud road frontage
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="42" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Multycrops
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="37" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">NH Frontage
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="154" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Panoramic view
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="43" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Pepper
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="143" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Posh Residential area
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="26" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Rectangular plot
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="82" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Rubber 
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="25" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Square plot
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="22" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Tar road frontage
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="133" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Tea
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="123" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Water facility
+											</div></div>
+											</div><div class="Property_Featuresleft">
+											<div class="PfRow"><div class="p1_box">
+      <input name="prop_feature[]" type="checkbox" id="prop_feature[]" value="34" >
+    										</div>
+    										<div class="p1_box" style="margin-top:2px; ">Well water
+											</div></div>
+											</div></div>
+
+<div>
+  									<div class="ProLis_FormBoxLeft_new" style="margin-bottom:4px;">Other Feature Information</div>
+									</div><div class="ProLis_FormBoxRow">
+							<div class="ProLis_FormBoxLftKf"><strong>Ownership ( Builder / Individually owned / joint owned)</strong></div>
+							<div class="ProLis_FormBoxrgtKf">
+							<input name="key_9" id="key_9" class="ProLis_input" type="text" value=""/>
+							</div>
+							</div>	
+
+<div class="ProLis_FormBoxRow">
+<div class="ProLis_FormBoxLftKf"><strong>Prominent Landmark Information</strong></div>
+<div class="ProLis_FormBoxrgtKf" style="height:75px">
+<textarea name="prop_landmarks" id="prop_landmarks" class="ProLis_input" cols="45" rows="5" style="width:300px; height:60px"></textarea>
+</div>
+</div>
+<div class="ProLis_FormBoxRow">
+  <div class="ProLis_FormBoxright" style="padding-top:8px;">
+  <div class="p1_box" style="margin-right:15px; width:80px">
+  <input type="hidden" name="propertyid" id="propertyid" value="18375" />    <input type="hidden" name="categ_refid" id="categ_refid" value="4" />
+  <input type="reset" name="reset_propftr" id="reset_propftr"  class="ProLisbutton" style="height:25px" value="Reset" /></div>
+<div class="p1_box"><input type="submit" name="sub_features" id="sub_features"  class="ProLisbutton" style="height:25px" value="Save" /></div>
+</div>
+</div>
+</div>
+</div>
+<!-- end property features-->
+
+<!--Upload Photo-->
+<div class="FT_main_box" style="height:740px; ng-show="tabs.displayUploadPhoto"">
+<img src="../images/ajax-loader.gif" width="0" height="0" />
+<div class="ProLis_FormImages">
+<div class="ProLis_FormNoticeRow">Click <a href="createproperty?id=18375&mode=edit&step=4&status=np"><strong> HERE </strong></a> to skip this step</div>
+<div id="uploaderform">
+    	<label>Type of Upload </label>
+    	<div><select name="mediatype" id="mediatype">
+    	<option value="P" selected>Property Photo</option>
+    	<option value="F">Floor Plan</option>     
+    	</select></div>    
+    	<label>Browse Image File</label>
+    	<div id="AddFileInputBox"><input id="fileInputBox" style="margin-bottom: 5px;" type="file"  name="file[]"/></div>    
+    	<input type="hidden" name="prop_reference" id="prop_reference" value="18375">
+    	<button type="submit" class="button" id="SubmitButton">Upload</button>
+    	<div align="center">
+    	<span class="mandatesamll">
+    	(Important : Use JPEG / PNG / GIF type images only - Max Size: 1 MB )</span><br>
+    	</div>  
+		</div>
+</div>
+</div>
+<!--end upload photo-->
+<div class="clear"></div>
+</div>
+
+
+<div class="adv_mainbox">
+  <div>
+     <div class="adv_box">
+      				<div class="hot_property_head_new"> Advertisements </div>
+      				<div>
+					
+        			<div class="iconBox_new">
+					
+					<div class="icon_left">
+					
+						<div class="icon140">
+						<a href="http://www.neelettu.com">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="140" height="70" title="Neelettu Homes">
+    <param name="movie" value="http://www.keralarealestate.com/files/bannerimages/1365509409.swf" />
+    <param name="quality" value="high" />
+    <embed src="http://www.keralarealestate.com/files/bannerimages/1365509409.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="140" height="70"></embed>
+  </object>
+						Neelettu Homes
+						</a></div><div class="icon140">
+						<a href="http://www.blossombuilders.com/index.html">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1379152573.gif" width="140" height="70" style="border:1px #000 solid" alt="Villas for sale at Aluva, Ernakulam">
+						Villas for sale at Aluva, Ernakulam
+						</a></div><div class="icon140">
+						<a href="http://www.acehomes.in/">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1377839279.gif" width="140" height="70" style="border:1px #000 solid" alt="Luxury apartments at Elamakkara, Ernakulam.">
+						Luxury apartments at Elamakkara, Ernakulam.
+						</a></div><div class="icon140">
+						<a href="http://www.sherborne.in/">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1372825830.gif" width="140" height="120" style="border:1px #000 solid" alt="Villas for sale at Kakkanad">
+						Villas for sale at Kakkanad
+						</a></div><div class="icon140">
+						<a href="http://www.ivyenclave.com/">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1377337975.gif" width="140" height="70" style="border:1px #000 solid" alt="Luxury villas at Edachira, Kakkanad">
+						Luxury villas at Edachira, Kakkanad
+						</a></div><div class="icon140">
+						<a href="http://www.ambadyconstructions.com/">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1380792773.gif" width="140" height="70" style="border:1px #000 solid" alt="Villas at Kadungalloor, Aluva">
+						Ambady Green Meadows - Villas at Kadungalloor, Aluva
+						</a></div><div class="icon140">
+						<a href="http://www.earthspacelife.com/">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1377925412.gif" width="140" height="70" style="border:1px #000 solid" alt="Hotel Apartment Project near Cochin International Airport">
+						Hotel Apartment Project near Cochin International Airport
+						</a></div><div class="icon140">
+						<a href="http://www.gmtharakancompany.com/current-projects.php">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1380175096.gif" width="140" height="70" style="border:1px #000 solid" alt="Finished Villa & Residential Plots in Pampady, Kottayam">
+						Finished Villa & Residential Plots in Pampady, Kottayam
+						</a></div><div class="icon140">
+						<a href="http://www.keralarealestate.com/details-14570-101-Acre-Plantation-Estate-at-Thirunelveli-Thamil-Nadu">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1371878902.gif" width="140" height="70" style="border:1px #000 solid" alt="101 acres of land at Thenkasi, Tamilnadu">
+						101 acres of land at Thenkasi, Tamilnadu
+						</a></div><div class="icon140">
+						<a href="http://gurukerala.com/">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1373951718.gif" width="140" height="70" style="border:1px #000 solid" alt="House plots at Angamaly, Karukutty, Paravoor, Thiruvankulam">
+						House plots at Angamaly, Karukutty, Paravoor, Thiruvankulam, Koonammavu
+						</a></div><div class="icon140">
+						<a href="http://josalukkasproperties.com/kerala-realestate/index.html">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="140" height="120" title="Jos Alukkas Properties">
+    <param name="movie" value="http://www.keralarealestate.com/files/bannerimages/1378547631.swf" />
+    <param name="quality" value="high" />
+    <embed src="http://www.keralarealestate.com/files/bannerimages/1378547631.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="140" height="120"></embed>
+  </object>
+						Jos Alukkas Properties
+						</a></div>
+						
+					</div>
+					
+					<div class="icon_right">
+						<div class="icon140">
+						<a href="http://www.muslipowerxtramusli.com/">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="140" height="70" title="Happiness through Health & Vitality">
+    <param name="movie" value="http://www.keralarealestate.com/files/bannerimages/1365569580.swf" />
+    <param name="quality" value="high" />
+    <embed src="http://www.keralarealestate.com/files/bannerimages/1365569580.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="140" height="70"></embed>
+  </object>
+						Happiness through Health & Vitality
+						</a></div><div class="icon140">
+						<a href="http://holidaygroup.in/">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="140" height="70" title="Holiday Group: Bay Castle- Apartment @ Marine Drive. Grandeur-Apartments at Kadavanthra">
+    <param name="movie" value="http://www.keralarealestate.com/files/bannerimages/1365569442.swf" />
+    <param name="quality" value="high" />
+    <embed src="http://www.keralarealestate.com/files/bannerimages/1365569442.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="140" height="70"></embed>
+  </object>
+						Holiday Group: Bay Castle- Apartment @ Marine Drive. Grandeur-Apartments at Kadavanthra
+						</a></div><div class="icon140">
+						<a href="http://www.gokulam.com">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="140" height="100" title="Luxury flats near Techno polis IT Park and SmartCity / Info Park, Kakkanad.">
+    <param name="movie" value="http://www.keralarealestate.com/files/bannerimages/1365568713.swf" />
+    <param name="quality" value="high" />
+    <embed src="http://www.keralarealestate.com/files/bannerimages/1365568713.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="140" height="100"></embed>
+  </object>
+						Luxury flats near Techno polis IT Park and SmartCity / Info Park, Kakkanad.
+						</a></div><div class="icon140">
+						<a href="http://www.shwasportal4.com">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="140" height="120" title="Shwas Homes">
+    <param name="movie" value="http://www.keralarealestate.com/files/bannerimages/1365568540.swf" />
+    <param name="quality" value="high" />
+    <embed src="http://www.keralarealestate.com/files/bannerimages/1365568540.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="140" height="120"></embed>
+  </object>
+						Shwas Homes
+						</a></div><div class="icon140">
+						<a href="http://www.shanoorprojects.com/">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1371813252.gif" width="140" height="120" style="border:1px #000 solid" alt="Villas from 40 lakhs onwards">
+						Villas from 40 lakhs onwards
+						</a></div><div class="icon140">
+						<a href="http://www.annaproperty.com/leCeleste/?pid=9">
+						<img src="http://www.keralarealestate.com/files/bannerimages/banner_1365568799.gif" width="140" height="120" border="0">
+						Anna Property
+						</a></div><div class="icon140">
+						<a href="http://www.kritiprojects.com/">
+						<img src="http://www.keralarealestate.com/files/bannerimages/1372071313.gif" width="140" height="70" style="border:1px #000 solid" alt="Premium  Apartments at Aroor, Kochi">
+						Premium  Apartments at Aroor, Kochi
+						</a></div><div class="icon140">
+						<a href="http://www.parklandbuilders.com/">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="140" height="70" title="Parkland Builders - Luxury Villas & Apartments for sale @ Thrissur.">
+    <param name="movie" value="http://www.keralarealestate.com/files/bannerimages/1365569151.swf" />
+    <param name="quality" value="high" />
+    <embed src="http://www.keralarealestate.com/files/bannerimages/1365569151.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="140" height="70"></embed>
+  </object>
+						Parkland Builders - Luxury Villas & Apartments for sale @ Thrissur.
+						</a></div><div class="icon140">
+						<a href="http://coralgroupindia.com/">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="140" height="120" title="Coral group: 6 acre Township Project of Flats & Villas near Thottumugham , Aluva. ">
+    <param name="movie" value="http://www.keralarealestate.com/files/bannerimages/1365569212.swf" />
+    <param name="quality" value="high" />
+    <embed src="http://www.keralarealestate.com/files/bannerimages/1365569212.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="140" height="120"></embed>
+  </object>
+						Coral group: 6 acre Township Project of Flats & Villas near Thottumugham , Aluva. 
+						</a></div><div class="icon140">
+						<a href="http://www.rajadhanidevelopers.com/index.asp">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="140" height="150" title="Rajadhani Developers: Luxury Apartments & Commercial spaces near Aluva Byepass. ">
+    <param name="movie" value="http://www.keralarealestate.com/files/bannerimages/1365569753.swf" />
+    <param name="quality" value="high" />
+    <embed src="http://www.keralarealestate.com/files/bannerimages/1365569753.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="140" height="150"></embed>
+  </object>
+						Rajadhani Developers: Luxury Apartments & Commercial spaces near Aluva Byepass. 
+						</a></div>
+					</div>								
+        			</div>
+      				</div>
+    				</div>
+  </div>
+</div>
+
+
+
+<div id="usfull_box">
+
+<div id="b_g_line"></div>
+<div class="usfull">
+<div class="us_full">
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

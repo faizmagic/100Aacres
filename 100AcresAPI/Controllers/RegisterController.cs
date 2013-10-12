@@ -23,6 +23,7 @@ namespace _100AcresAPI.Controllers
                 FormsAuthentication.SetAuthCookie(user.UserName, true);
                 //Membership.ValidateUser(
                 response = Request.CreateResponse(HttpStatusCode.OK, user);
+                response.Headers.Add("Access-Control-Allow-Origin", "*");
             }
             catch (Exception ex)
             {

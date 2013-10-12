@@ -68,11 +68,14 @@
     <Content Include="app\jplugins\pagination.js" />
     <Content Include="app\jplugins\ui-bootstrap-0.6.0.js" />
     <Content Include="app\js\app.js" />
+    <Content Include="app\js\mainController.js" />
     <Content Include="app\js\propertyDetailController.js" />
     <Content Include="app\js\PropertyListController.js" />
     <Content Include="app\js\registerUserCtrl.js" />
+    <Content Include="app\js\sellConroller.js" />
     <Content Include="app\partials\property_detail.htm" />
     <Content Include="app\partials\register.htm" />
+    <Content Include="app\partials\sellProperty.htm" />
     <Content Include="app\styles\animate.css" />
     <Content Include="app\styles\bootstrap.css" />
     <Content Include="app\styles\github.css" />

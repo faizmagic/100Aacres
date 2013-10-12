@@ -75,7 +75,8 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
     when('/properties', {templateUrl:'app/partials/property_listings.htm', controller:propertyListCtrl}).
     when('/properties/:Id', { templateUrl: 'app/partials/property_detail.htm', controller: propertyDetailCtrl }).
-    when('/register', {templateUrl: 'app/partials/register.htm', controller: registerUserCtrl}).
+    when('/register', { templateUrl: 'app/partials/register.htm', controller: registerUserCtrl }).
+    when('/sell', {templateUrl:'app/partials/sellProperty.htm', controller: sellCtrl }).
     otherwise({redirectTo:'/properties'});
 } ]);
 
