@@ -65,9 +65,11 @@
     <Content Include="app\jplugins\carousel.js" />
     <Content Include="app\jplugins\jPages.js" />
     <Content Include="app\jplugins\jquery-1.8.2.min.js" />
+    <Content Include="app\jplugins\ng-upload.js" />
     <Content Include="app\jplugins\pagination.js" />
     <Content Include="app\jplugins\ui-bootstrap-0.6.0.js" />
     <Content Include="app\js\app.js" />
+    <Content Include="app\js\fileUploadCtrl.js" />
     <Content Include="app\js\mainController.js" />
     <Content Include="app\js\propertyDetailController.js" />
     <Content Include="app\js\PropertyListController.js" />

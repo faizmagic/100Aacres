@@ -64,7 +64,7 @@ namespace _100AcresAPI.Controllers
 
         public int TaskID { get; set; }
         private int UserID { get; set; }
-        public CustomMultipartFormDataStreamProvider(string path, int ptaskID, int pUserID)
+        public CustomMultipartFormDataStreamProvider(string path, int ptaskID = 0, int pUserID = 0)
             : base(path)
         {
             TaskID = ptaskID;
@@ -79,14 +79,14 @@ namespace _100AcresAPI.Controllers
 
             ActualFileName = Path.GetFileName(ActualFileName);
 
-            UniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(ActualFileName);
+            //UniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(ActualFileName);
 
             //int id = SaveFileInfoIntoDatabase(ActualFileName, TaskID, UniqueFileName, UserID);
 
             headers.Add("ActualFileName", ActualFileName);
             //headers.Add("id", id.ToString());
 
-            return UniqueFileName;
+            return ActualFileName;
 
         }
     }
@@ -107,11 +107,12 @@ namespace _100AcresAPI.Controllers
             // Create a stream provider for setting up output streams that saves the output under c:\tmp\uploads   
             // If you want full control over how the stream is saved then derive from MultipartFormDataStreamProvider 
             // and override what you need.
-            MultipartFormDataStreamProvider streamProvider = new MultipartFormDataStreamProvider(@"d:\tmp");
+            MultipartFormDataStreamProvider streamProvider = new CustomMultipartFormDataStreamProvider(@"d:\tmp");
             
             // Read the MIME multipart content using the stream provider we just created.
-            //Task<MultipartFormDataStreamProvider> task = Request.Content.ReadAsMultipartAsync(streamProvider);
-            //MultipartFormDataStreamProvider provider = task.Result;
+            //Task<MultipartFormDataStreamProvider> task1 = Request.Content.ReadAsMultipartAsync(streamProvider);
+            //MultipartFormDataStreamProvider provider = task1.Result;
+            
             string rootUrl = Request.RequestUri.AbsoluteUri.Replace(Request.RequestUri.AbsolutePath, String.Empty);
             var task = Request.Content.ReadAsMultipartAsync(streamProvider).ContinueWith<HttpResponseMessage>(t =>
             {
@@ -145,6 +146,7 @@ namespace _100AcresAPI.Controllers
             });
 
 
+            //Task.WaitAll(task);
 
             //IEnumerable<HttpContent> bodyparts = task.Result.Contents;
 

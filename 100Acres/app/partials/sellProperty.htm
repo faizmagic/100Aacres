@@ -523,16 +523,24 @@ Rajashree public school - 3 km
 <img src="../images/ajax-loader.gif" width="0" height="0" />
 <div class="ProLis_FormImages">
 <div class="ProLis_FormNoticeRow">Click <a href="createproperty?id=18375&mode=edit&step=4&status=np"><strong> HERE </strong></a> to skip this step</div>
-<div id="uploaderform">
+<div id="uploaderform" ng-controller="fileUploadCtrl">
     	<label>Type of Upload </label>
     	<div><select name="mediatype" id="mediatype">
     	<option value="P" selected>Property Photo</option>
     	<option value="F">Floor Plan</option>     
-    	</select></div>    
-    	<label>Browse Image File</label>
-    	<div id="AddFileInputBox"><input id="fileInputBox" style="margin-bottom: 5px;" type="file"  name="file[]"/></div>    
-    	<input type="hidden" name="prop_reference" id="prop_reference" value="18375">
-    	<button type="submit" class="button" id="SubmitButton">Upload</button>
+    	</select></div>
+        <form  id="frmupload" action="http://localhost:6119/100AcresAPI/api/fileupload" method="post" enctype="multipart/form-data">
+            <input type="file" name="myfile" />
+            <br />
+            <input type="submit" value="Upload File to Server" />
+        </form>
+    
+        <div class="progress">
+            <div class="bar"></div >
+            <div class="percent">0%</div>
+        </div>
+    
+    <div id="status"></div>
     	<div align="center">
     	<span class="mandatesamll">
     	(Important : Use JPEG / PNG / GIF type images only - Max Size: 1 MB )</span><br>
@@ -543,7 +551,36 @@ Rajashree public school - 3 km
 <!--end upload photo-->
 <div class="clear"></div>
 </div>
+<script type="text/javascript">
+    (function () {
+        var bar = $('.bar');
+        var percent = $('.percent');
+        var status = $('#status');
 
+        $('#frmupload').ajaxForm({
+            beforeSend: function () {
+                status.empty();
+                var percentVal = '0%';
+                bar.width(percentVal)
+                percent.html(percentVal);
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var percentVal = percentComplete + '%';
+                bar.width(percentVal)
+                percent.html(percentVal);
+            },
+            success: function () {
+                var percentVal = '100%';
+                bar.width(percentVal)
+                percent.html(percentVal);
+            },
+            complete: function (xhr) {
+                status.html(xhr.responseText);
+            }
+        });
+
+    })();       
+</script>
 
 <div class="adv_mainbox">
   <div>

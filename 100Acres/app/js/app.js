@@ -1,12 +1,12 @@
 ﻿
-var app = angular.module('100acres', ['ngResource', 'ui.bootstrap.pagination', 'ui.bootstrap.carousel']);
+var app = angular.module('100acres', ['ngResource', 'ui.bootstrap.pagination', 'ui.bootstrap.carousel', 'ngUpload']);
 
 app.factory('Property', function ($q, $http) {
     //return $resource('app/listings/listings.json', {}, { newListings: { method: 'GET', cache: true, isArray: true} });
     return {
         newListings: function () {
             var deferred = $q.defer();
-            $http.get('http://localhost/100AcresAPI/api/property').success(function (data) {
+            $http.get('http://localhost:6119/100AcresAPI/api/property').success(function (data) {
                 deferred.resolve(data);
             }).error(function (data, status) {
                 deferred.reject();
@@ -52,7 +52,7 @@ app.factory('Register', function ($q, $http) {
     return {
         newUser: function (user) {
             var deferred = $q.defer();
-            $http.post('http://localhost/100AcresAPI/api/register', user).success(function (data, status) {
+            $http.post('http://localhost:6119/100AcresAPI/api/register', user).success(function (data, status) {
                 deferred.resolve(data);
             }).error(function (data) {
                 deferred.reject();
