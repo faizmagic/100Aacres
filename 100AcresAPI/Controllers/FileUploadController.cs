@@ -11,6 +11,7 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Diagnostics;
 using System.Net.Http.Formatting;
+using System.Web.Hosting;
 
 namespace _100AcresAPI.Controllers
 {
@@ -107,7 +108,8 @@ namespace _100AcresAPI.Controllers
             // Create a stream provider for setting up output streams that saves the output under c:\tmp\uploads   
             // If you want full control over how the stream is saved then derive from MultipartFormDataStreamProvider 
             // and override what you need.
-            MultipartFormDataStreamProvider streamProvider = new CustomMultipartFormDataStreamProvider(@"d:\tmp");
+            string PATH = HostingEnvironment.MapPath("~/Uploads");
+            MultipartFormDataStreamProvider streamProvider = new CustomMultipartFormDataStreamProvider(PATH);
             
             // Read the MIME multipart content using the stream provider we just created.
             //Task<MultipartFormDataStreamProvider> task1 = Request.Content.ReadAsMultipartAsync(streamProvider);
