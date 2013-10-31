@@ -12,33 +12,33 @@
 <div id="hotbox1">
 <div align="left" class="Pro_DetailsBox">
 <div class="Pro_DetailsheadingBox">
-<div class="Pro_Detailsheading">{{details.title}}</div>
-<div><span class="Pro_Details_subheading">Price :  {{details.price}}</span>  | Posted on : {{details.postedOn}} | ID: {{details.id}}</div>
+<div class="Pro_Detailsheading">{{details.Title}}</div>
+<div><span class="Pro_Details_subheading">Price :  {{details.Price}}</span>  | Posted on : {{details.PostedOn}} | ID: {{details.ID}}</div>
 </div>
-<div class="Pro_Details_text">{{details.detail}}</div>
+<div class="Pro_Details_text">{{details.Detail}}</div>
 <div>
 <div class="pro_lc">
 <div class="Pro_location_left">
-  <p><span class="ProBlue">Type :</span>{{details.type}}</p>
-  <p><span class="ProBlue">Location :</span>{{details.location}}</p>
-  <p><span class="ProBlue">Transaction Type :</span>{{details.transactionType}}</p>
-  <p><span class="ProBlue">Property Age :</span>{{details.propertyAge}}</p>
+  <p><span class="ProBlue">Type :</span>{{details.Type}}</p>
+  <p><span class="ProBlue">Location :</span>{{details.Location}}</p>
+  <p><span class="ProBlue">Transaction Type :</span>{{details.TransactionType}}</p>
+  <p><span class="ProBlue">Property Age :</span>{{details.PropertyAge}}</p>
 </div>
 <div class="Pro_location_left">
-  <p><span class="ProBlue">Bedroom(s) :</span>{{details.bedroom}}</p>
-  <p><span class="ProBlue">Bathroom(s) :</span>{{details.bathroom}}</p>
-  <p><span class="ProBlue">Build up Area :</span>{{details.buildUpArea}}</p>
-  <p><span class="ProBlue">Plot Area :</span>{{details.plotArea}}</p>
+  <p><span class="ProBlue">Bedroom(s) :</span>{{details.Bedroom}}</p>
+  <p><span class="ProBlue">Bathroom(s) :</span>{{details.Bathroom}}</p>
+  <p><span class="ProBlue">Build up Area :</span>{{detailsBuildUpArea}}</p>
+  <p><span class="ProBlue">Plot Area :</span>{{details.PlotArea}}</p>
 </div>
 </div>
 </div>
 
 <carousel interval="myInterval">
-    <slide ng-repeat="slide in details.slides" active="slide.active">
-      <img ng-src="{{slide.image}}" style="margin:auto;">
+    <slide ng-repeat="slide in details.Slides" active="slide.active">
+      <img ng-src="{{slide.Image}}" style="margin:auto;">
       <div class="carousel-caption">
         <h4>Slide {{$index}}</h4>
-        <p>{{slide.text}}</p>
+        <p>{{slide.Text}}</p>
       </div>
     </slide>
 </carousel>
@@ -47,31 +47,31 @@
         <li class="t01" ng-click="toggle('showPropDesc')">Property Description</li>
 		    <div ng-show="showPropDesc">
                 <ul>
-                    <li ng-repeat="desc in details.propertyDescription">{{desc}}</li>
+                    <li ng-repeat="desc in details.PropertyDescription">{{desc}}</li>
                 </ul>
             </div>
 		<li class="t01">Property Features</li>
 			<div class="toggle_Box">
-              <ul ng-repeat="feature in details.propertyFeatures"></ul>
+              <ul ng-repeat="feature in details.PropertyFeatures"></ul>
             </div>
         <li class="t01">Facilities / Amenities</li>
 									<div class="toggle_Box">
                                         <ul>
-                                            <li ng-repeat="facility in detail.facilities"></li>
+                                            <li ng-repeat="facility in detail.Facilities"></li>
                                         </ul>
                                      </div>
 		<li class="t01">Other Features</li>
 									<div class="toggle_Box"><p><span class="extraBlue">Ownership (Builder / Individually owned / joint owned) : </span>&nbsp;&nbsp;{{details.otherFeatures.ownership}}</p><p><span class="extraBlue">Furnishing (Yes / No) : </span>&nbsp;&nbsp;{{details.otherFeatures.furnishing}}</p></div>
 		<li class="t01">Land Marks</li>
 									<div class="toggle_Box">
-                                        <li ng-repeat="landmark in details.landmarks"></li>
+                                        <li ng-repeat="landmark in details.Landmarks"></li>
 									</div>
         <li class="t01">Contact Details</li>
 									<div class="toggle_Box">
 									<Div class="Contact_Bt_box">
 									<div class="CBT_L">
-									<div style="clear:both"><div class="CBT_SB_L">Name: </div><div class="CBT_SB_R">{{details.contactDetails.name}}</div></div>
-									<div style="clear:both"><div class="CBT_SB_L"><strong>Address: </strong></div><div class="CBT_SB_R">{{details.contactDetails.address}}<br />
+									<div style="clear:both"><div class="CBT_SB_L">Name: </div><div class="CBT_SB_R">{{details.ContactDetails.Name}}</div></div>
+									<div style="clear:both"><div class="CBT_SB_L"><strong>Address: </strong></div><div class="CBT_SB_R">{{details.ContactDetails.Address}}<br />
 <br />
 <br />
 <br />

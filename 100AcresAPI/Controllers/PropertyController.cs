@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Net.Http;
 using System.Net;
+using System.Web.Hosting;
 
 namespace _100AcresAPI.Controllers
 {
@@ -23,14 +24,16 @@ namespace _100AcresAPI.Controllers
         private IEnumerable<Listings> LoadListingsFromJson()
         {
             IEnumerable<Listings> listings = null;
-            
-            using (StreamReader r = new StreamReader(@"C:\Users\FAIZ\Documents\GitHub\LibertyCoder\100Aacres\100AcresAPI\Listings\listings.json"))
+            string PATH = HostingEnvironment.MapPath(@"~\Listings");
+            string fileName = Path.Combine(PATH, "listings.json");
+
+            using(StreamReader r = new StreamReader(fileName))
             {
                 string json = r.ReadToEnd();
                 listings = JsonConvert.DeserializeObject<List<Listings>>(json);
             }
             HttpContext context = HttpContext.Current;
-            context.Response.AppendHeader("Access-Control-Allow-Origin", "http://localhost:3815");
+            context.Response.AppendHeader("Access-Control-Allow-Origin", "http://localhost");
             //HttpResponseMessage response = Request.CreateResponse<IEnumerable<Listings>>(HttpStatusCode.OK, listings);
             //response.Headers.Add("Access-Control-Allow-Origin", "*");
             return listings;

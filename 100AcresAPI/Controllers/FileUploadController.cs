@@ -132,40 +132,42 @@ namespace _100AcresAPI.Controllers
                     files.Add(file.Headers.ContentDisposition.FileName);
                     files.Add("Server file path: " + file.LocalFileName);
 
-                    
 
-                    using (Image image = Image.FromFile(file.LocalFileName))
+                    // Your output path
+                    string outputPath = Path.Combine(PATH, "Thumbnail");
+                    string fileName = Path.Combine(outputPath, "thumbnail.jpeg");
+                    if (!File.Exists(fileName))
                     {
-                        // Then we create a thumbnail.
-                        // The simplest way is using Image.GetThumbnailImage:
-                        using (var thumb = image.GetThumbnailImage(
-                            150,
-                            150,
-                            () => false,
-                            IntPtr.Zero))
+                        if (!Directory.Exists(outputPath))
                         {
-                            // Finally, we encode and save the thumbnail.
-                            var jpgInfo = ImageCodecInfo.GetImageEncoders()
-                                .Where(codecInfo => codecInfo.MimeType == "image/jpeg").First();
-
-                            using (var encParams = new EncoderParameters(1))
+                            Directory.CreateDirectory(outputPath);
+                        }
+                        using (Image image = Image.FromFile(file.LocalFileName))
+                        {
+                            // Then we create a thumbnail.
+                            // The simplest way is using Image.GetThumbnailImage:
+                            using (var thumb = image.GetThumbnailImage(
+                                150,
+                                150,
+                                () => false,
+                                IntPtr.Zero))
                             {
-                                // Your output path
-                                string outputPath = Path.Combine(PATH, "Thumbnail");
-                                if (!Directory.Exists(outputPath))
+                                // Finally, we encode and save the thumbnail.
+                                var jpgInfo = ImageCodecInfo.GetImageEncoders()
+                                    .Where(codecInfo => codecInfo.MimeType == "image/jpeg").First();
+
+                                using (var encParams = new EncoderParameters(1))
                                 {
-                                    Directory.CreateDirectory(outputPath);
+
+
+                                    // Image quality (should be in the range [0..100])
+                                    long quality = 90;
+                                    encParams.Param[0] = new EncoderParameter(Encoder.Quality, quality);
+                                    thumb.Save(fileName, jpgInfo, encParams);
                                 }
-
-                                outputPath = Path.Combine(outputPath, "thumbnail.jpeg");
-
-                                // Image quality (should be in the range [0..100])
-                                long quality = 90;
-                                encParams.Param[0] = new EncoderParameter(Encoder.Quality, quality);
-                                thumb.Save(outputPath, jpgInfo, encParams);
                             }
                         }
-                    }
+                }
                 }
 
                 // Show all the key-value pairs.

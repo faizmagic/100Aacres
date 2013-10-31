@@ -21,7 +21,8 @@ app.factory('propertyDetail', function ($q, $http) {
     return {
         loadDetail: function (id) {
             var deferred = $q.defer();
-            var url = 'app/listings/' + id + '.json';
+            //var url = 'app/listings/' + id + '.json';
+            var url = 'http://localhost:6119/100AcresAPI/api/propertydetail?id=' + id;
             $http.get(url).success(function (data) {
                 deferred.resolve(data);
             }).error(function (data, status) {
