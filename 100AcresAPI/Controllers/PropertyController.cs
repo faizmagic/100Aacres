@@ -38,5 +38,28 @@ namespace _100AcresAPI.Controllers
             //response.Headers.Add("Access-Control-Allow-Origin", "*");
             return listings;
         }
+
+        /// <summary>
+        /// Post Property Ad - save general information
+        /// </summary>
+        /// <param name="generalInfo"></param>
+        /// <returns></returns>
+        public HttpResponseMessage PostSaveGenInfo(GeneralInformation generalInfo)
+        {
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK);
+            return response;
+        }
+
+        /// <summary>
+        /// Post Property Ad - save property details
+        /// </summary>
+        /// <param name="propFeature"></param>
+        /// <returns></returns>
+        public HttpResponseMessage PostSavePropertyFeatures(PropertyFeature propFeature)
+        {
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK);
+            return response;
+        }
+
     }
 }

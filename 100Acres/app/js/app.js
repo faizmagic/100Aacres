@@ -13,6 +13,9 @@ app.factory('Property', function ($q, $http) {
             });
 
             return deferred.promise;
+        },
+        save: function (data) {
+            return $http.post('http://localhost:6119/100AcresAPI/api/property', data);
         }
     }
 });

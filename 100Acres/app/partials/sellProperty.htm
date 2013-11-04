@@ -1,17 +1,17 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Sell Property</title>
+    <title></title>
 </head>
-<body>
+<body ng-controller="sellCtrl">
     <div class="main_box">
 <div id="hotbox1">
 <div class="PostPro_head">Update Property Listing</div>
 <div class="Post_Tabbox">
-<div class="FTab1"><a href="#/sell" class="link_ap" ng-click="tabs.click('displayGeneralInformation')">General Information</a></div>
-									 <div class="FTab2"><a href="#/sell" class="link_ap1" ng-click="tabs.click('displayPropertyFeatures')">Property Features</a></div>
-									 <div class="FTab3"><a href="#/sell" class="link_ap1" ng-click="tabs.click('displayUploadPhoto')">Photos/Floor Plans</a></div>
-									 <div class="FTab4"><a href="createproperty?mode=edit&id=18375&step=4" class="link_ap1">Activate Posting</a></div>
+<div class="FTab1"><a class="link_ap" ng-click="tabs.click('displayGeneralInformation')">General Information</a></div>
+									 <div class="FTab2"><a class="link_ap1" ng-click="tabs.click('displayPropertyFeatures')">Property Features</a></div>
+									 <div class="FTab3"><a class="link_ap1" ng-click="tabs.click('displayUploadPhoto')">Photos/Floor Plans</a></div>
+									 <!--<div class="FTab4"><a href="createproperty?mode=edit&id=18375&step=4" class="link_ap1">Activate Posting</a></div>-->
 </div>
 <div class="FT_main_box" ng-show="tabs.displayGeneralInformation">
 <div class="ProLis_FormBox">
@@ -19,13 +19,13 @@
 <div class="ProLis_FormBoxLeft">Post Property for<span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxright">
 <div class="p1_box">
-		<input type="radio" name="posttype" id="posttype" value="1" checked></div>
+		<input type="radio" name="posttype" ng-model="GeneralInformation.TransactionType" ng-value="'Sale'" /></div>
 <div class="p1_box" style="margin-top:4px; margin-right:12px"><strong>Sale</strong></div><div class="p1_box">
-		<input type="radio" name="posttype" id="posttype" value="2" ></div>
+		<input type="radio" name="posttype" ng-model="GeneralInformation.TransactionType" ng-value="'Rental'" /></div>
 <div class="p1_box" style="margin-top:4px; margin-right:12px"><strong>Rental</strong></div><div class="p1_box">
-		<input type="radio" name="posttype" id="posttype" value="3" ></div>
+		<input type="radio" name="posttype" ng-model="GeneralInformation.TransactionType" ng-value="'PG'" /></div>
 <div class="p1_box" style="margin-top:4px; margin-right:12px"><strong>P G</strong></div><div class="p1_box">
-		<input type="radio" name="posttype" id="posttype" value="4" ></div>
+		<input type="radio" name="posttype" ng-model="GeneralInformation.TransactionType" ng-value="'Lease'" /></div>
 <div class="p1_box" style="margin-top:4px; margin-right:12px"><strong>Lease</strong></div>
 
 <div class="message_error" id="ptype_error" style="display:none;">Please Select Type of Posting</div>
@@ -35,10 +35,7 @@
 <div class="ProLis_FormBoxRow">
 <div class="ProLis_FormBoxLeft">Property Category<span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxright">
-<select style="width:190px; height:27px; border-radius:5px;" class="ProLis_input" id="prop_category" name="prop_category" onChange="populateTypelist(this.value);">
-<option value="0">Select a Category</option>                            
-    <option  value="1">Residential</option><option  value="2">Commercial</option><option  value="3">SEZ</option><option selected="selected" value="4">Land</option><option  value="6">Projects</option> 
-</select>
+<select style="width:190px; height:27px; border-radius:5px;" class="ProLis_input" id="prop_category" ng-model="GeneralInformation.PropertyCategory" name="prop_category" ng-options="c as c for c in DropDown.Category"></select>
 <div class="message_error" id="pcateg_error" style="display:none;">Please select a Category</div>
 </div>
 </div>
@@ -47,8 +44,7 @@
 <div class="ProLis_FormBoxLeft">Type of Property<span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxright">
 <div id="proptypelist"> 
-    <select name="proptype" id="proptype" style="width:190px; height:27px; border-radius:5px;" class="ProLis_input">
-      									<option value="">Select Type</option><option selected="selected" value="7">Residential Land / Plot</option><option  value="8">Commercial / Industrial Land</option><option  value="26">Agricultural Land</option><option  value="25">Plantation / Estate</option><option  value="33">Commercial cum Residential </option></select>   
+    <select name="proptype" id="proptype" style="width:190px; height:27px; border-radius:5px;" class="ProLis_input" ng-model="GeneralInformation.PropertyType" ng-options="t as t for t in DropDown.PropertyType"></select>   
 </div>
 <div class="message_error" id="proptype_error" style="display:none;">Please select Type of Property</div>
 </div>
@@ -58,7 +54,7 @@
 <div class="ProLis_FormBoxLeft">
 Brief Title for the Ad.<span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxright">
-<input name="prop_title" type="text" class="ProLis_input" style="width:390px" id="prop_title" value="7.5 Cent Residential Land Kadungaloor, Aluva" />
+<input name="prop_title" type="text" class="ProLis_input" style="width:390px;" ng-model="GeneralInformation.Title"/>
 <div class="message_error" id="proptitle_error" style="display:none;">Please enter a Title for the Property</div>
 </div>
 </div>
@@ -66,7 +62,7 @@ Brief Title for the Ad.<span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxRow">
 <div class="ProLis_FormBoxLeft">Age of Property</div>
 <div class="ProLis_FormBoxright">
-<input name="prop_age" type="text" class="ProLis_input" style="width:70px" id="prop_age" value="" />
+<input name="prop_age" type="text" class="ProLis_input" style="width:70px" ng-model="GeneralInformation.PropertyAge"/>
 <strong style="padding-left:5px"> years</strong> (No. of Years - 1, 2, 5..)
 <div class="message_error" id="propage_error" style="display:none;">Please use Numbers only</div>
 </div>
@@ -75,18 +71,14 @@ Brief Title for the Ad.<span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxRow">
 <div class="ProLis_FormBoxLeft">Property Status</div>
 <div class="ProLis_FormBoxright">
-<select name="prop_status" style="width:85px; height:26px; border-radius:5px;" class="ProLis_input" id="prop_status">
-      <option value="" >Any</option>
-                		<option value="New" >New</option>
-                		<option value="Resale" >Resale</option>
-</select>
+<select name="prop_status" style="width:85px; height:26px; border-radius:5px;" class="ProLis_input" ng-model="GeneralInformation.PropertyStatus" ng-options="s as s for s in DropDown.PropertyStatus"></select>
 </div>
 </div>
 
 <div class="ProLis_FormBoxRow" id="propresidentparam" style="display:none;">
 <div class="ProLis_FormBoxLeft">No. of Bedrooms</div>
 <div class="ProLis_FormBoxright">
-<input name="prop_rooms" type="text" class="ProLis_input" style="width:70px" id="prop_rooms" value="" />
+<input name="prop_rooms" type="text" class="ProLis_input" style="width:70px" ng-model="GeneralInformation.NoOfBedrooms"/>
 <div class="message_error" id="propbed_error" style="display:none;">Please enter value in Numbers</div>
 </div>
 </div>
@@ -94,7 +86,7 @@ Brief Title for the Ad.<span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxRow" id="propresidentparam2" style="display:none;">
 <div class="ProLis_FormBoxLeft">No. of Bathrooms</div>
 <div class="ProLis_FormBoxright">
-<input name="prop_bath" type="text" class="ProLis_input" style="width:70px" id="prop_bath" value="" />
+<input name="prop_bath" type="text" class="ProLis_input" style="width:70px" ng-model="GeneralInformation.NoOfBathrooms"/>
 <div class="message_error" id="propbath_error" style="display:none;">Please enter value in Numbers</div>
 </div>
 </div>
@@ -104,75 +96,50 @@ Brief Title for the Ad.<span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxLeft">Build up Area </div>
 <div class="ProLis_FormBoxright">
 <div class="p1_box" style="width:100px">
-<input name="prop_buildup" type="text" class="ProLis_input" style="width:80px" id="prop_buildup" value="" />
+<input name="prop_buildup" type="text" class="ProLis_input" style="width:80px" ng-model="GeneralInformation.BuildUpArea"/>
 </div>
-<div class="p1_box"><select name="buildupunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" id="buildupunits">
-      <option value="" selected="selected">Select</option>                              
-                         <option value="Sq.Feet" >Sq.Feet</option>
-                         <option value="Sq.Mtr" >Sq.Mtr</option>
-                         <option value="Cent" >Cent</option>
-                         <option value="Acre" >Acre</option>
-    </select></div>
- 
+<div class="p1_box">
+    <select name="buildupunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" ng-model="GeneralInformation.BuildUpAreaUnit" ng-options="u as u for u in DropDown.Unit"></select>
 </div>
 </div>
-
-
-<div class="ProLis_FormBoxRow" id="propbuildparam2" style="display:none;">
+</div>
+<div class="ProLis_FormBoxRow" style="display:none;">
 <div class="ProLis_FormBoxLeft">Plot Area </div>
 <div class="ProLis_FormBoxright">
 <div class="p1_box" style="width:100px">
-<input name="prop_plot" type="text" class="ProLis_input" style="width:80px" id="prop_plot" value="" />
+<input name="prop_plot" type="text" class="ProLis_input" style="width:80px" ng-model="GeneralInformation.PlotArea"/>
 </div>
-<div class="p1_box"><select name="plotunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" id="plotunits">
-      <option value="" selected="selected">Select</option>                              
-                         <option value="Sq.Feet" >Sq.Feet</option>
-                         <option value="Sq.Mtr" >Sq.Mtr</option>
-                         <option value="Cent" >Cent</option>
-                         <option value="Acre" >Acre</option>
-    </select></div>
+<div class="p1_box"><select name="plotunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" ng-model="GeneralInformation.PerUnitUnit" ng-options="u as u for u in DropDown.Unit"></select>
 </div>
 </div>
-
-
+</div>
 <div class="ProLis_FormBoxRow" id="proplandparam" >
 <div class="ProLis_FormBoxLeft">Land Area </div>
 <div class="ProLis_FormBoxright">
 <div class="p1_box" style="width:100px">
-<input name="prop_land" type="text" class="ProLis_input" style="width:80px" id="prop_land" value="7.5" />
+<input name="prop_land" type="text" class="ProLis_input" style="width:80px" ng-model="GeneralInformation.LandArea"/>
 </div>
-<div class="p1_box"><select name="landunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" id="landunits">
-      <option value="" >Select</option>                              
-                         <option value="Sq.Feet" >Sq.Feet</option>
-                         <option value="Sq.Mtr" >Sq.Mtr</option>
-                         <option value="Cent" selected="selected">Cent</option>
-                         <option value="Acre" >Acre</option>
-    </select></div>
+<div class="p1_box">
+    <select name="landunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" ng-model="GeneralInformation.LandAreaUnit" ng-options="u as u for u in DropDown.Unit"></select>
 </div>
 </div>
-
-
+</div>
 <div class="ProLis_FormBoxRow">
 <div class="ProLis_FormBoxLeft">Property Price </div>
 <div class="ProLis_FormBoxright">
 <div class="p1_box" style="margin-top:4px; margin-right:4px"><strong>Rs:</strong></div>
 <div class="p1_box" style="width:100px">
-<input name="propprice" type="text" class="ProLis_input" style="width:80px" id="propprice" value="4" /></div>
+<input name="propprice" type="text" class="ProLis_input" style="width:80px" ng-model="GeneralInformation.PropertyPrice"/></div>
 <div class="p1_box">
- <input name="perunit" type="radio" id="perunit" value="gross"  onClick="propunits.disabled=true">
+ <input name="perunit" type="radio" id="perunit" value="gross"  onClick="propunits.disabled=true" />
 </div>
 <div class="p1_box" style="margin-top:4px; margin-right:10px"><strong>Gross</strong></div>
 <div class="p1_box">
-<input type="radio" name="perunit" id="perunit" value="unit" checked onClick="propunits.disabled=false"></div>
+<input type="radio" name="perunit" id="perunit" value="unit" checked onClick="propunits.disabled=false" /></div>
 <div class="p1_box" style="margin-top:4px; margin-right:10px"><strong>Per Unit</strong></div>
 <div class="p1_box">
-<select name="propunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" id="propunits" >
-   <option value="" >Select</option>                              
-                         <option value="Sq.Feet" >Sq.Feet</option>
-                         <option value="Sq.Mtr" >Sq.Mtr</option>
-                         <option value="Cent" selected="selected">Cent</option>
-                         <option value="Acre" >Acre</option>
-</select></div>
+    <select name="propunits" style="width:80px; height:26px; border-radius:5px;" class="ProLis_input" ng-model="GeneralInformation.PerUnitUnit" ng-options="u as u for u in DropDown.Unit"></select>
+</div>
 <div  class="p1_box" id="propprice_error" style="margin-left:22px; width:320px; display:none;">
 <span class="message_error">Please enter price in Number format</span></div>
 
@@ -183,40 +150,29 @@ Brief Title for the Ad.<span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxLeft">Price Negotiable </div>
 
 <div class="ProLis_FormBoxright">
- <input name="price_negotiable" type="checkbox" id="price_negotiable" value="Y" checked>
+ <input name="price_negotiable" type="checkbox" ng-model="GeneralInformation.PriceNegotiable" />
 </div>
 </div>
 
 <div class="ProLis_FormBoxRow" style="height:70px;">
-<div class="ProLis_FormBoxLeft">Brief Description <span class="ProLis_star">*</span><br>
+<div class="ProLis_FormBoxLeft">Brief Description <span class="ProLis_star">*</span><br />
   <span style="font-weight:normal">(Max: 300 Chars)</span></div>
 <div class="ProLis_FormBoxright">
-  <textarea name="propintro" id="propintro" class="ProLis_input" cols="45" rows="5" style="width:390px; height:60px">7.5 Cent Residential Land Kadungaloor, Aluva for sale. posh residential area with 7 and 5 meter access road to property</textarea>
+  <textarea name="propintro" id="propintro" class="ProLis_input" cols="45" rows="5" style="width:390px; height:60px" ng-model="GeneralInformation.Description"></textarea>
 <div class="message_error" id="propintro_error" style="display:none;">Please add Brief description of the Property</div>
 </div>
 </div>
-
 <div style="height:25px">
 <div class="ProLis_FormBoxLeft">Property Details </div>
 <div style="float:right; width:30px; padding-right:10px;">.</div>
 </div>
-
-<div style="margin-bottom:10px"><textarea name="prop_description" id="prop_description" class="ProLis_input" cols="45" rows="5" style="width:97%; height:250px;">The property is conveniently located and has easy access to the following
-
-Aluva Town - 4 Km
-Container Terminal Road - 6 km
-Bus stop - less than 0.5 km
-UC College - 3 km
-Rajashree public school - 3 km
-</textarea></div>
-
+<div style="margin-bottom:10px">
+    <textarea name="prop_description" id="prop_description" class="ProLis_input" cols="45" rows="5" style="width:97%; height:250px;" ng-model="GeneralInformation.PropertyDetails"></textarea>
+</div>
 <div class="ProLis_FormBoxRow">
 <div class="ProLis_FormBoxLeft">Region<span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxright">
-<select name="propdist" style="width:190px; height:27px; border-radius:5px;" class="ProLis_input" id="propdist" onChange="populatecitylist(this.value);">
-    <option value="0">Select Region</option>                            
-             <option selected="selected" value="1">Kerala</option><option  value="2">Outside Kerala</option>
-    </select>
+<select name="propdist" style="width:190px; height:27px; border-radius:5px;" class="ProLis_input" id="propdist" onChange="populatecitylist(this.value);" ng-model="GeneralInformation.Region" ng-options="r as r for r in DropDown.Region"></select>
 <div class="message_error" id="region_error" style="display:none;">Please Select Region of Property</div>
 </div>
 </div>
@@ -225,8 +181,7 @@ Rajashree public school - 3 km
 <div class="ProLis_FormBoxLeft">District / Area <span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxright">
 <div id="citylist">  
-    <select name="propcity" id="propcity" style="width:190px; height:27px; border-radius:5px;" class="ProLis_input" onchange="controllocationfield(this.value);">
-                             		 <option value="0">Select District/Area</option><option  value="1">Alappuzha</option><option selected="selected" value="2">Ernakulam</option><option  value="3">Idukki</option><option  value="8">Kannur</option><option  value="7">Kasargod</option><option  value="4">Kollam</option><option  value="5">Kottayam</option><option  value="6">Kozhikode</option><option  value="9">Malappuram</option><option  value="11">Palakkad</option><option  value="10">Pathanamthitta</option><option  value="12">Thiruvananthapuram</option><option  value="13">Thrissur</option><option  value="14">Wayanad</option></select>  
+    <select name="propcity" id="propcity" style="width:190px; height:27px; border-radius:5px;" class="ProLis_input" ng-model="GeneralInformation.District" ng-options="d as d for d in DropDown.District"></select>  
 </div>
 <div class="message_error" id="propcity_error" style="display:none;">Please Select District / Area of Property</div>
 </div>
@@ -235,7 +190,7 @@ Rajashree public school - 3 km
 <div class="ProLis_FormBoxRow">
 <div class="ProLis_FormBoxLeft">City <span class="ProLis_star">*</span></div>
 <div class="ProLis_FormBoxright">
-<input name="proplocation" type="text" class="ProLis_input" id="proplocation" value="" onKeyUp="javascript:autosuggestlocation()"  autocomplete="off" />
+    <input name="proplocation" type="text" class="ProLis_input" onKeyUp="javascript:autosuggestlocation()"  autocomplete="off" ng-model="GeneralInformation.City"/>
 <div id="resultslocation" style="display:none;"></div>
 <div class="message_error" id="proplocation_error" style="display:none;">Please post City of Property</div>
 </div>
@@ -244,49 +199,43 @@ Rajashree public school - 3 km
 <div class="ProLis_FormBoxRow">
 <div class="ProLis_FormBoxLeft">Location :</div>
 <div class="ProLis_FormBoxright">
-<input name="loc_place" type="text" class="ProLis_input" id="loc_place" value="Aluva" />
+<input name="loc_place" type="text" class="ProLis_input" ng-model="GeneralInformation.Location"/>
 </div>
 </div>
 
 <div class="ProLis_FormBoxRow">
 <div class="ProLis_FormBoxLeft">Contact Name</div>
 <div class="ProLis_FormBoxright">
-<input name="prop_contactname" type="text" class="ProLis_input" id="prop_contactname" value="Faiz Mohammed" />
+<input name="prop_contactname" type="text" class="ProLis_input" ng-model="GeneralInformation.ContactName"/>
 </div>
 </div>
 
 <div class="ProLis_FormBoxRow" style="height:63px">
 <div class="ProLis_FormBoxLeft">Contact Address </div>
 <div class="ProLis_FormBoxright">
-<textarea name="prop_contactaddress" id="prop_contactaddress" class="ProLis_input" cols="45" rows="5" style="width:390px; height:55px">
-
-
-</textarea>
+<textarea name="prop_contactaddress" id="prop_contactaddress" class="ProLis_input" cols="45" rows="5" style="width:390px; height:55px" ng-model="GeneralInformation.ContactAddress"></textarea>
 </div>
 </div>
 
 <div class="ProLis_FormBoxRow">
 <div class="ProLis_FormBoxLeft">Contact Phone</div>
 <div class="ProLis_FormBoxright">
-<input name="prop_contactphone" type="text" class="ProLis_input" id="prop_contactphone" value="09987820821" />
+<input name="prop_contactphone" type="text" class="ProLis_input" ng-model="GeneralInformation.ContactPhone"/>
 </div>
 </div>
 
 <div class="ProLis_FormBoxRow">
 <div class="ProLis_FormBoxLeft">Contact Mobile  :</div>
 <div class="ProLis_FormBoxright">
-<input name="prop_contactmobile" type="text" class="ProLis_input" id="prop_contactmobile" value="09987820821" />
+<input name="prop_contactmobile" type="text" class="ProLis_input" ng-model="GeneralInformation.ContactMobile"/>
 </div>
 </div>
-
-
 <div class="ProLis_FormBoxRow">
   <div class="ProLis_FormBoxright" style="padding-top:8px;">
   <div class="p1_box" style="margin-right:15px; width:80px">
-  <input type="hidden" name="mode" id="mode" value="edit" />
   <input type="hidden" name="id" id="id" value="18375" />
-  <input type="reset" name="reset_propinfo" id="reset_propinfo"  class="ProLisbutton" style="height:25px" value="Reset" /></div>
-<div class="p1_box"><input type="button" name="sub_propinfo" id="sub_propinfo"  class="ProLisbutton" style="height:25px" value="Save" /></div>
+  <input type="reset" name="reset_propinfo" id="reset_propinfo"  class="ProLisbutton" style="height:25px" value="Reset" ng-click="GeneralInformation.Reset()"/></div>
+<div class="p1_box"><input type="button" name="sub_propinfo" id="sub_propinfo"  class="ProLisbutton" style="height:25px" value="Save" ng-click="GeneralInformation.Save()"/></div>
 </div>
 </div>
 </div>
